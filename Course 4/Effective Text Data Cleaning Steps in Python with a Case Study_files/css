@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Noto Sans Japanese Light'), local('NotoSansJapanese-Light'), url(https://fonts.gstatic.com/l/font?kit=-F6pfjtqLzI2JPCgQBnw7HFQaioq12Uar8MlJ-1V93hyV1e-MyMW7V3n40TMh7-R9o_PQpiiRSLuhlzkJ77poTrq-XBB-agqFh4xJVJEqcQq9qGYSpYmuL59xzzA5n9D6_JT2gvEnfseoooRyJt2YSNMOsRZm95l6rrGDXYKrWJpYDxOrNkaj6FpPN_ortlSerCnRdcvjw&skey=f8a75aa314b1396f&v=v25) format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Noto Sans Japanese Regular'), local('NotoSansJapanese-Regular'), url(https://fonts.gstatic.com/l/font?kit=-F62fjtqLzI2JPCgQBnw7HFowxp1-n5VtN4gLDrgTnhzXVe-NCMWx13n4kTMir-R44_Mf5iiTiLullzkFb7ppjrq4nBB9qgrMB4xCFV_kMQp2aCmapYlu7509jzr-H9J3fF32Qvav_scrIob-Jt2aSN1D8VUqN551LXbDnYJkmJpQT1_kNkgkqFpPdn1otlSZ7CnRw&skey=72472b0eb8793570&v=v25) format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Noto Sans Japanese Medium'), local('NotoSansJapanese-Medium'), url(https://fonts.gstatic.com/l/font?kit=-F6pfjtqLzI2JPCgQBnw7HFQMisq12Uar8MlJ-1V93hyV1e-MyMW7V3n40TMh7-R9o_PQpiiRSLuhlzkJ77poTrq-XBB-agqFh4xJVJEqcQq9qGYSpYmuL59xzzA5n9D6_JT2gvEnfseoooRyJt2YSNMOsRZm95l6rrGDXYKrWJpYDxOrNkaj6FpPN_ortlSerCnRdcvjw&skey=fbc48de1c6e1b00c&v=v25) format('woff2');
+}

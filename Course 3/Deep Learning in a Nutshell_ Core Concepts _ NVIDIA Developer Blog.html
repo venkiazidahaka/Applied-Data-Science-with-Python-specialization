@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/ -->
+<html class=" js no-flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en-US"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/get_counts"></script><script type="text/javascript" async="" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/analytics.js.download"></script><script id="twitter-wjs" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/widgets.js.download"></script>
+    <script async="" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/5a5be45672b70f00137efeb7.js.download"></script><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"a63018bcb3",applicationID:"39867691"};window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var i=n[t]={exports:{}};e[t][0].call(i.exports,function(n){var i=e[t][1][n];return r(i||n)},i,i.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<t.length;i++)r(t[i]);return r}({1:[function(e,n,t){function r(){}function i(e,n,t){return function(){return o(e,[u.now()].concat(f(arguments)),n?null:this,t),n?void 0:this}}var o=e("handle"),a=e(4),f=e(5),c=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",d=l+"ixn-";a(p,function(e,n){s[n]=i(l+n,!0,"api")}),s.addPageAction=i(l+"addPageAction",!0),s.setCurrentRouteName=i(l+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,i="function"==typeof n;return o(d+"tracer",[u.now(),e,t],r),function(){if(c.emit((i?"":"no-")+"fn-start",[u.now(),r,i],t),i)try{return n.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],t),e}finally{c.emit("fn-end",[u.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=i(d+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){var t=e.getEntries();t.forEach(function(e){"first-paint"===e.name?c("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&c("timing",["fcp",Math.floor(e.startTime)])})}function i(e,n){var t=e.getEntries();t.length>0&&c("lcp",[t[t.length-1]])}function o(e){if(e instanceof s&&!l){var n,t=Math.round(e.timeStamp);n=t>1e12?Date.now()-t:u.now()-t,l=!0,c("timing",["fi",t,{type:e.type,fid:n}])}}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var a,f,c=e("handle"),u=e("loader"),s=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){a=new PerformanceObserver(r),f=new PerformanceObserver(i);try{a.observe({entryTypes:["paint"]}),f.observe({entryTypes:["largest-contentful-paint"]})}catch(p){}}if("addEventListener"in document){var l=!1,d=["click","keydown","mousedown","pointerdown","touchstart"];d.forEach(function(e){document.addEventListener(e,o,!1)})}}},{}],3:[function(e,n,t){function r(e,n){if(!i)return!1;if(e!==i)return!1;if(!n)return!0;if(!o)return!1;for(var t=o.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var f=navigator.userAgent,c=f.match(a);c&&f.indexOf("Chrome")===-1&&f.indexOf("Chromium")===-1&&(i="Safari",o=c[1])}n.exports={agent:i,version:o,match:r}},{}],4:[function(e,n,t){function r(e,n){var t=[],r="",o=0;for(r in e)i.call(e,r)&&(t[o]=n(r,e[r]),o+=1);return t}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],5:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,i=t-n||0,o=Array(i<0?0:i);++r<i;)o[r]=e[n+r];return o}n.exports=r},{}],6:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function i(e){function n(e){return e&&e instanceof r?e:e?c(e,f,o):o()}function t(t,r,i,o){if(!l.aborted||o){e&&e(t,r,i);for(var a=n(i),f=v(t),c=f.length,u=0;u<c;u++)f[u].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function d(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||i(t)}function w(e,n){u(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:d,addEventListener:d,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(l.aborted=!0,s=l.backlog={})}var f="nr@context",c=e("gos"),u=e(4),s={},p={},l=n.exports=i();l.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(i.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[n]=r,r}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){i.buffer([e],r),i.emit(e,n,t)}var i=e("ee").get("handle");n.exports=r,r.ee=i},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=E.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();u(y,function(n,t){e[n]||(e[n]=t)}),c("mark",["onload",a()+E.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function i(){"complete"===d.readyState&&o()}function o(){c("mark",["domContent",a()+E.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(f=Math.max((new Date).getTime(),f))-E.offset}var f=(new Date).getTime(),c=e("handle"),u=e(4),s=e("ee"),p=e(3),l=window,d=l.document,m="addEventListener",v="attachEvent",g=l.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:g,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1167.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),E=n.exports={offset:f,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),e(2),d[m]?(d[m]("DOMContentLoaded",o,!1),l[m]("load",r,!1)):(d[v]("onreadystatechange",i),l[v]("onload",r)),c("mark",["firstbyte",f],null,"api");var x=0,O=e(6)},{}],"wrap-function":[function(e,n,t){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(5),a="nr@original",f=Object.prototype.hasOwnProperty,c=!1;n.exports=function(e,n){function t(e,n,t,i){function nrWrapper(){var r,a,f,c;try{a=this,r=o(arguments),f="function"==typeof t?t(r,a):t||{}}catch(u){l([u,"",[r,a,i],f])}s(n+"start",[r,a,i],f);try{return c=e.apply(a,r)}catch(p){throw s(n+"err",[r,a,p],f),p}finally{s(n+"end",[r,a,c],f)}}return r(e)?e:(n||(n=""),nrWrapper[a]=e,p(e,nrWrapper),nrWrapper)}function u(e,n,i,o){i||(i="");var a,f,c,u="-"===i.charAt(0);for(c=0;c<n.length;c++)f=n[c],a=e[f],r(a)||(e[f]=t(a,u?f+i:i,o,f))}function s(t,r,i){if(!c||n){var o=c;c=!0;try{e.emit(t,r,i,n)}catch(a){l([a,t,r,i])}c=o}}function p(e,n){if(Object.defineProperty&&Object.keys)try{var t=Object.keys(e);return t.forEach(function(t){Object.defineProperty(n,t,{get:function(){return e[t]},set:function(n){return e[t]=n,n}})}),n}catch(r){l([r])}for(var i in e)f.call(e,i)&&(n[i]=e[i]);return n}function l(n){try{e.emit("internal-error",n)}catch(t){}}return e||(e=i),t.inPlace=u,t.flag=a,t}},{}]},{},["loader"]);</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <link rel="pingback" href="https://devblogs.nvidia.com/xmlrpc.php">
+  <link media="all" href="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/autoptimize_868aa634aab5aa40ebf484edc2e6a71b.css" rel="stylesheet"><title>Deep Learning in a Nutshell: Core Concepts | NVIDIA Developer Blog</title>
+
+
+<!-- The SEO Framework by Sybre Waaijer -->
+<meta name="robots" content="max-snippet:-1,max-image-preview:standard,max-video-preview:-1">
+<meta name="description" content="An intuitive and gentle introduction to deep learning. Covers the most important deep learning concepts, giving an understanding of each concept rather than mathematical and theoretical details.">
+<meta property="og:image" content="https://devblogs.nvidia.com/wp-content/uploads/2015/08/DL_dog_340x340.jpg">
+<meta property="og:image:width" content="340">
+<meta property="og:image:height" content="340">
+<meta property="og:image" content="https://devblogs.nvidia.com/wp-content/uploads/2015/08/DL_dog_340x340-300x300.jpg">
+<meta property="og:image" content="https://devblogs.nvidia.com/wp-content/uploads/2015/11/hierarchical_features.png">
+<meta property="og:image" content="https://devblogs.nvidia.com/wp-content/uploads/2015/11/sigmoid1-300x200.png">
+<meta property="og:image" content="https://devblogs.nvidia.com/wp-content/uploads/2015/11/convolution.png">
+<meta property="og:image" content="https://devblogs.nvidia.com/wp-content/uploads/2015/11/Convolution_schematic.gif">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deep Learning in a Nutshell: Core Concepts | NVIDIA Developer Blog">
+<meta property="og:description" content="An intuitive and gentle introduction to deep learning. Covers the most important deep learning concepts, giving an understanding of each concept rather than mathematical and theoretical details.">
+<meta property="og:url" content="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/">
+<meta property="og:site_name" content="NVIDIA Developer Blog">
+<meta property="article:published_time" content="2015-11-04T01:50+00:00">
+<meta property="article:modified_time" content="2018-01-15T02:12+00:00">
+<meta property="og:updated_time" content="2018-01-15T02:12+00:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Deep Learning in a Nutshell: Core Concepts | NVIDIA Developer Blog">
+<meta name="twitter:description" content="An intuitive and gentle introduction to deep learning. Covers the most important deep learning concepts, giving an understanding of each concept rather than mathematical and theoretical details.">
+<meta name="twitter:image" content="https://devblogs.nvidia.com/wp-content/uploads/2015/08/DL_dog_340x340.jpg">
+<meta name="twitter:image:width" content="340">
+<meta name="twitter:image:height" content="340">
+<link rel="canonical" href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://devblogs.nvidia.com/","name":"NVIDIA Developer Blog"}},{"@type":"ListItem","position":2,"item":{"@id":"https://devblogs.nvidia.com/category/artificial-intelligence/","name":"AI / Deep Learning"}},{"@type":"ListItem","position":3,"item":{"@id":"https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/","name":"Deep Learning in a Nutshell: Core Concepts"}}]}</script>
+<!-- / The SEO Framework by Sybre Waaijer | 0.67ms meta | 1.03ms boot -->
+
+<link rel="dns-prefetch" href="https://devblogs.nvidia.com/">
+<link rel="dns-prefetch" href="https://platform-api.sharethis.com/">
+<link rel="dns-prefetch" href="https://secure.gravatar.com/">
+<link rel="dns-prefetch" href="https://unpkg.com/">
+<link rel="dns-prefetch" href="https://maxcdn.bootstrapcdn.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/atom+xml" title="NVIDIA Developer Blog » Feed" href="https://devblogs.nvidia.com/feed/">
+<link rel="alternate" type="application/atom+xml" title="NVIDIA Developer Blog » Comments Feed" href="https://devblogs.nvidia.com/comments/feed/">
+<link rel="alternate" type="application/atom+xml" title="NVIDIA Developer Blog » Deep Learning in a Nutshell: Core Concepts Comments Feed" href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/feed/">
+<meta property="og:image" content="https://devblogs.nvidia.com/wp-content/uploads/2015/08/DL_dog_340x340.jpg">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/devblogs.nvidia.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.4.1"}};
+			/*! This file is auto-generated */
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/wp-emoji-release.min.js.download" type="text/javascript" defer=""></script>
+		
+	
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" id="font-awesome-css" href="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/font-awesome.min.css" type="text/css" media="all">
+
+
+<script type="text/javascript" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/jquery.js.download"></script>
+<script type="text/javascript" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/jquery-migrate.min.js.download"></script>
+<script type="text/javascript" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/sharethis.js.download"></script>
+<script type="text/javascript" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/miniorange-api-authentication-public.js.download"></script>
+<script type="text/javascript" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/jquery.sidr.min.js.download"></script>
+<script type="text/javascript" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/modernizr-2.5.3.min.js.download"></script>
+<script type="text/javascript" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/jquery.placeholder.min.js.download"></script>
+<script type="text/javascript" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/bootstrap.min.js.download"></script>
+<link rel="https://api.w.org/" href="https://devblogs.nvidia.com/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://devblogs.nvidia.com/xmlrpc.php?rsd">
+<link rel="alternate" type="application/json+oembed" href="https://devblogs.nvidia.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdevblogs.nvidia.com%2Fdeep-learning-nutshell-core-concepts%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://devblogs.nvidia.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdevblogs.nvidia.com%2Fdeep-learning-nutshell-core-concepts%2F&amp;format=xml">
+<script type="text/javascript">
+	window._zem_rp_post_id = '6063';
+	window._zem_rp_thumbnails = false;
+	window._zem_rp_post_title = 'Deep+Learning+in+a+Nutshell%3A+Core+Concepts';
+	window._zem_rp_post_tags = ['deep+neural+networks', 'machine+learning', 'neural+networks', 'cudnn', 'deep+learning', 'artificial+intelligence', 'cover', 'machin', '3a', 'write', '4a', 'network', 'data', 'learn', 'train', 'digest', 'glossari', 'seri', 'mathemat', 'deep', 'style'];
+	window._zem_rp_static_base_url = 'https://content.zemanta.com/static/';
+	window._zem_rp_wp_ajax_url = 'https://devblogs.nvidia.com/wp-admin/admin-ajax.php';
+	window._zem_rp_plugin_version = '1.14';
+	window._zem_rp_num_rel_posts = '4';
+</script>
+
+
+<!-- Stream WordPress user activity plugin v3.4.3 -->
+<script src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/satelliteLib-7ba51e58dc61bcb0e9311aadd02a0108ab24cc6c.js.download"></script><script src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/mbox-contents-076a7d6590086f9601d839f4444d591eddf5d2d1.js.download"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async="" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/js"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-137382579-1');</script>
+	<!--wp code prettify-->
+<link rel="dns-prefetch" href="https://widgets.wp.com/">
+<link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://0.gravatar.com/">
+<link rel="dns-prefetch" href="https://1.gravatar.com/">
+<link rel="dns-prefetch" href="https://2.gravatar.com/">
+<link rel="dns-prefetch" href="https://c0.wp.com/">
+			<link rel="stylesheet" type="text/css" id="wp-custom-css" href="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/saved_resource(1)">
+		<link id="prettify_css" type="text/css" rel="stylesheet" href="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/prettify.css"><style id="prettify_custom" type="text/css">pre.prettyprint { max-height: 500px; white-space: pre; word-wrap: normal; overflow: auto; background-color: #f8f8f8;border-radius: 3px; } pre.prettyprint[title]:before { float: right; border: 1px solid #ccc; border-radius: 3px; background: #ddd; padding: 10px; content: attr(title);  font: 13px "Trebuchet MS", "Helvetica Neue", Helvetica, Arial, sans-serif; }</style><script src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/satellite-594a6ce764746d506700c2a3.js.download"></script><script src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/satellite-5991afef64746d6deb010d48.js.download"></script><script src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/satellite-5991b02f64746d63240018f2.js.download"></script><script src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/s-code-contents-72887b31a9638f8b3cff7981a426c38c354f6412.js.download"></script><script async="" type="text/javascript" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/count.js.download"></script><script type="text/javascript" async="" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/embed.js.download"></script><link id="mktoForms2BaseStyle" rel="stylesheet" type="text/css" href="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/forms2.css"><link id="mktoForms2ThemeStyle" rel="stylesheet" type="text/css" href="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/forms2-theme-inset.css"><style>/* Add your custom CSS below */
+/* Add your custom CSS below */
+.mktoForm .mktoButtonWrap.mktoSimple .mktoButton {
+  background: #76b900 !important;
+  height: 40px !important;
+  border: 0px solid #76B900 !important;
+  padding 12px !important;
+  color: #f1f1f1 !important;
+  font-size: 18px !important;
+  font-family: "DINWebPro-Bold", Arial, Helvetica, sans-serif !important;
+  box-shadow: none !important;
+  border-radius: 0px !important;
+  text-shadow: none !important;
+  -webkit-border-radius: 0px !important;
+  -moz-border-radius: 0px !important;
+  margin-top: 15PX;
+}
+
+.mktoForm .mktoFormCol {
+    min-height: 0px;
+}
+
+.mktoForm .mktoRequiredField .mktoAsterix {
+    display: none;
+}
+ 
+
+.mktoForm input[type=text],.mktoForm input[type=url], .mktoForm input[type=email], .mktoForm input[type=tel], .mktoForm input[type=number], .mktoForm input[type=date], .mktoForm textarea.mktoField, .mktoForm select.mktoField {
+	border: solid 1px #cccccc !important;
+	font-family: "DINPro", Arial, Helvetica, sans-serif !important;
+	background-color: #fff !important; 
+    display: inline-block !important;
+	-webkit-border-radius: 0px !important;
+	-moz-border-radius: 0px !important;
+	border-radius: 0px !important;
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+	color: #666 !important;
+}
+
+.mktoForm .mktoLabel {
+font-family: "DINPro", Arial, Helvetica, sans-serif !important;
+}
+
+.mktoForm select.mktoField {
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+}
+
+keygen, select {
+    border-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+}
+
+.mktoForm .mktoGutter {
+    display: none !important;
+}
+
+.mktoForm .mktoRadioList, .mktoForm .mktoCheckboxList {
+    padding: 0px !important;
+}
+
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    background-color: #fff !important;
+}
+
+
+::-webkit-input-placeholder {
+  color: #666;
+}
+::-moz-placeholder { 
+  color: #666;
+}
+:-ms-input-placeholder {
+  color: #666;
+}
+:-moz-placeholder {
+  color: #666;
+}
+
+.cf_widget_socialsignon .cf_sign_on {
+    border: 1px solid #ccc;
+    -webkit-border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    border-radius: 0px !important;
+    background-color: #fff !important;
+    width: 298px;
+}
+
+
+.cf_widget_socialsignon .cf_sign_on_button {
+  
+  
+    line-height: 14px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    border: none;
+    padding: 5px 5px;
+    width: 80px;
+    float: left;
+    background: #ccc !important;
+    font-family: helvetica, arial, sans-serif;
+    font-size: 13px;
+    color: #666;
+    cursor: pointer;
+}
+
+.cf_widget .cf_synd_icon_tw_sm {
+    background: url(http://info.nvidia.com/rs/156-OFN-742/images/nv-social_icons-corp-tw-14.png);
+}
+
+.cf_widget .cf_synd_icon_fb_sm {
+    background: url(http://info.nvidia.com/rs/156-OFN-742/images/nv-social_icons-corp-fb-14.png);
+}
+
+.mktoForm div, .mktoForm span, .mktoForm label, .mktoForm p {
+    color: #666;
+}
+
+
+
+
+.cf_widget_socialsignon .cf_sign_on {
+    border: 1px solid #ccc;
+      width: 298px;
+
+}
+
+
+.mktoLogicalField .mktoCheckboxList .mktoHasWidth .mktoValid{
+  margin-bottom:0px;
+}
+
+
+.mktoForm .mktoError .mktoErrorMsg {
+    display: block;
+    margin-top: 7px;
+    background-color: #fff;
+    background-image: none !important;
+    border: 1px solid #9f1300;
+    -webkit-border-radius: 0px !important;
+    border-radius: 0px !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    color: #666;
+    font-size: 1em;
+    line-height: 1.2em;
+    max-width: 16em;
+    padding: 0.4em 0.6em;
+    text-shadow: none !important;
+}</style><link rel="stylesheet" type="text/css" id="gravatar-card-css" href="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/hovercard.min.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/services.min.css"><script src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/count-data.js.download"></script><style type="text/css">#st-2 {
+  font-family: "Helvetica Neue", Verdana, Helvetica, Arial, sans-serif;;
+  -moz-transition: all 0.2s ease-in; -ms-transition: all 0.2s ease-in; -o-transition: all 0.2s ease-in; -webkit-transition: all 0.2s ease-in; transition: all 0.2s ease-in;
+  backface-visibility: hidden;
+  display: block;
+  position: fixed;
+  opacity: 1;
+  text-align: left;
+  top: 160px;
+  z-index: 94034;
+}
+#st-2.st-left {
+  left: 0px;
+}
+#st-2.st-hidden.st-left {
+  left: -48px;
+}
+#st-2.st-hidden {
+  width: 96px;
+}
+#st-2 > div {
+  clear: left;
+  float: left;
+}
+#st-2 .st-btn {
+  -moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+  -moz-transition: all 0.2s ease-in; -ms-transition: all 0.2s ease-in; -o-transition: all 0.2s ease-in; -webkit-transition: all 0.2s ease-in; transition: all 0.2s ease-in;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  font-size: NaNpx;
+  height: 48px;
+  line-height: 24px;
+  margin-bottom: 0;
+  opacity: 1;
+  overflow: hidden;
+  padding: 12px;
+  position: relative;
+  text-align: left;
+  top: 0;
+  vertical-align: top;
+  white-space: nowrap;
+  width: 48px;
+}
+#st-2 .st-btn.st-first {
+  border-top: none;
+  border-top-right-radius: 4px;
+}
+#st-2 .st-btn.st-last {
+  border-bottom: none;
+  border-bottom-right-radius: 4px;
+}
+#st-2 .st-btn > svg {
+  -moz-transition: all 0.2s ease-in; -ms-transition: all 0.2s ease-in; -o-transition: all 0.2s ease-in; -webkit-transition: all 0.2s ease-in; transition: all 0.2s ease-in;
+  height: 24px;
+  margin-left: 0;
+  vertical-align: top;
+  width: 24px;
+}
+#st-2 .st-btn > img {
+  -moz-transition: all 0.2s ease-in; -ms-transition: all 0.2s ease-in; -o-transition: all 0.2s ease-in; -webkit-transition: all 0.2s ease-in; transition: all 0.2s ease-in;
+  height: 24px;
+  margin-left: 0;
+  vertical-align: top;
+  width: 24px;
+}
+#st-2 .st-btn > span {
+  -moz-transition: all 0.2s ease-in; -ms-transition: all 0.2s ease-in; -o-transition: all 0.2s ease-in; -webkit-transition: all 0.2s ease-in; transition: all 0.2s ease-in;
+  color: #fff;
+  display: inline-block;
+  font-weight: 500;
+  left: -35px;
+  letter-spacing: 0.5px;
+  opacity: 0;
+  padding: 0 6px;
+  position: relative;
+  vertical-align: top;
+  filter: alpha(opacity=0);
+}
+#st-2 .st-btn.st-hide-label > span {
+  display: none !important;
+}
+#st-2 .st-total {
+  -moz-transition: all 0.2s ease-in; -ms-transition: all 0.2s ease-in; -o-transition: all 0.2s ease-in; -webkit-transition: all 0.2s ease-in; transition: all 0.2s ease-in;
+  background: #fff;
+  color: #555;
+  display: inline-block;
+  font-weight: 500;
+  line-height: 18px;
+  margin-right: 0;
+  min-height: 34px;
+  max-width: 80px;
+  opacity: 1;
+  padding: 4px 0;
+  text-align: center;
+  width: 48px;
+}
+#st-2 .st-total.st-hidden {
+  display: none;
+}
+#st-2 .st-total > span {
+  display: block;
+  font-size: 18px;
+  line-height: 21px;
+  padding: 0;
+}
+#st-2 .st-total > span.st-shares {
+  font-size: 11px;
+  line-height: 11px;
+}
+#st-2 .st-toggle {
+  left: -48px;
+  -moz-transition: all 0.2s ease-in; -ms-transition: all 0.2s ease-in; -o-transition: all 0.2s ease-in; -webkit-transition: all 0.2s ease-in; transition: all 0.2s ease-in;
+  background: #ccc;
+  border-bottom-right-radius: 4px;
+  color: white;
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 24px;
+  position: relative;
+  text-align: center;
+  width: 48px;
+}
+#st-2.st-hidden .st-toggle {
+  border-top-right-radius: 4px;
+}
+#st-2.st-left .st-toggle .st-left {
+  display: inline-block;
+}
+#st-2.st-left.st-hidden .st-toggle .st-left {
+  display: none;
+}
+#st-2.st-left .st-toggle .st-right {
+  display: none;
+}
+#st-2.st-left.st-hidden .st-toggle .st-right {
+  display: inline-block;
+}#st-2:hover .st-toggle {
+  left: 0;
+}
+#st-2.st-hidden:hover .st-toggle {
+  left: 48px;
+}
+#st-2.st-toggleable:hover .st-btn.st-last {
+  border-bottom-right-radius: 0;
+}
+#st-2.st-toggleable:hover .st-btn.st-last:hover {
+  border-bottom-right-radius: 4px;
+}
+#st-2 .st-btn:hover {
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+}
+#st-2.st-has-labels .st-btn:hover {
+  width: 120px;
+}
+#st-2:not(.st-has-labels) .st-btn:hover {
+  width: 62px;
+}
+#st-2 .st-btn.st-hide-label:hover {
+  width: 62px;
+}
+#st-2 .st-btn:hover > svg {
+  margin-left: 5px;
+}
+#st-2 .st-btn:hover > img {
+  margin-left: 5px;
+}
+#st-2 .st-btn:hover > span {
+  opacity: 1;
+  display: inline-block;
+  left: 0;
+  filter: alpha(opacity=100);
+}
+@media (max-width: 1024px) {
+  #st-2 .st-btn:hover > svg {
+    margin-left: 0;
+  }
+  #st-2 .st-btn:hover > span {
+    display: none;
+  }
+}@media (max-width: 1024px) {
+  #st-2 {
+  bottom: 0;
+  display: flex;
+  left: 0;
+  right: 0;
+  top: auto;
+  width: 100%;
+}
+#st-2.st-hidden {
+  bottom: -48px;
+  width: 100%;
+}
+#st-2.st-hidden.st-left {
+  left: 0;
+}
+#st-2.st-hidden.st-right {
+  right: 0;
+}
+#st-2 > div {
+  -moz-flex: 1;
+  -ms-flex: 1;
+  -webkit-flex: 1;
+  clear: none;
+  flex: 1;
+  float: none;
+}
+#st-2 .st-total {
+  background: #fff;
+  padding: 6px 8px;
+}
+#st-2 .st-btn {
+  -moz-border-radius: 0 !important;
+-webkit-border-radius: 0 !important;
+border-radius: 0 !important;
+  text-align: center;
+  width: auto;
+}
+#st-2 .st-btn > span {
+  display: none;
+}
+#st-2 .st-toggle {
+  display: none;
+}body { padding-bottom: 48px; }
+}#st-2 .st-btn[data-network='facebook'] {
+  background-color: #4267B2;
+}
+#st-2 .st-btn[data-network='facebook'] svg {
+  fill: #fff;
+}
+#st-2 .st-btn[data-network='facebook'] > span {
+  color: #fff;
+}
+#st-2 .st-btn[data-network='twitter'] {
+  background-color: #55acee;
+}
+#st-2 .st-btn[data-network='twitter'] svg {
+  fill: #fff;
+}
+#st-2 .st-btn[data-network='twitter'] > span {
+  color: #fff;
+}
+#st-2 .st-btn[data-network='email'] {
+  background-color: #7d7d7d;
+}
+#st-2 .st-btn[data-network='email'] svg {
+  fill: #fff;
+}
+#st-2 .st-btn[data-network='email'] > span {
+  color: #fff;
+}
+#st-2 .st-btn[data-network='sms'] {
+  background-color: #ffbd00;
+}
+#st-2 .st-btn[data-network='sms'] svg {
+  fill: #fff;
+}
+#st-2 .st-btn[data-network='sms'] > span {
+  color: #fff;
+}
+#st-2 .st-btn[data-network='sharethis'] {
+  background-color: #95D03A;
+}
+#st-2 .st-btn[data-network='sharethis'] svg {
+  fill: #fff;
+}
+#st-2 .st-btn[data-network='sharethis'] > span {
+  color: #fff;
+}
+#st-2 .st-btn[data-network='linkedin'] {
+  background-color: #0077b5;
+}
+#st-2 .st-btn[data-network='linkedin'] svg {
+  fill: #fff;
+}
+#st-2 .st-btn[data-network='linkedin'] > span {
+  color: #fff;
+}
+#st-2 .st-btn[data-network='reddit'] {
+  background-color: #ff4500;
+}
+#st-2 .st-btn[data-network='reddit'] svg {
+  fill: #fff;
+}
+#st-2 .st-btn[data-network='reddit'] > span {
+  color: #fff;
+}
+#st-2 .st-btn[data-network='googleplus'] {
+  background-color: undefined;
+}
+#st-2 .st-btn[data-network='googleplus'] svg {
+  fill: #fff;
+}
+#st-2 .st-btn[data-network='googleplus'] > span {
+  color: #fff;
+}</style><link rel="prefetch" as="style" href="https://c.disquscdn.com/next/embed/styles/lounge.db072b7d11b56c5c060394cab39e75c5.css"><link rel="prefetch" as="script" href="https://c.disquscdn.com/next/embed/common.bundle.f9554506a08a1cc2b021f0dfc3f59ebb.js"><link rel="prefetch" as="script" href="https://c.disquscdn.com/next/embed/lounge.bundle.d3858dbda732166bc46a5391f5b0b789.js"><link rel="prefetch" as="script" href="https://disqus.com/next/config.js"></head>
+<body class="post-template-default single single-post postid-6063 single-format-standard">
+  <div class="wrapper">
+    <div class="content">
+
+<div id="page" class="hfeed">
+  <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header" style="">
+            <div class="logo-header">
+                <a href="https://developer.nvidia.com/" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer"><img alt="NVIDIA Accelerated Computing" width="112" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/nvidia-logo.svg"></a>
+                <a href="https://developer.nvidia.com/" class="title accelerated" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">Developer</a>
+            </div>
+        </div>
+        <div class="navbar-login" id="navbar-login" style="">
+            <ul class="navbar-margin navbar-right navbar-margin-media login-nav">
+                <li class="search" id="search-top">
+
+                    <div class="wrap-search-field">
+                        <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#" id="trigger-search-top" class="hidden-xs">
+                            <i class="fa fa-search"></i>
+                        </a>
+                        <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#" id="trigger-search-top-mobile" class="hidden-lg hiddem-md hidden-sm">
+                            <i class="fa fa-search"></i>
+                        </a>
+                        <div class="search-form form-field" id="search-top-form">
+                            <form action="https://devblogs.nvidia.com/" accept-charset="UTF-8" method="get" id="search-theme-form-input">
+                                <div>
+                                    <div id="search" class="container-inline">
+                                        <div class=" form-type-textfield form-item-search-theme-form form-item form-group">
+                                            <div class="input">
+                                                <input type="text" placeholder="Search..." name="search_theme_form" id="search-top-bar" value="" title="Enter the terms you wish to search for." class="form-text form-control " style="">
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="form_build_id" id="form-psuQ7x3mMxCYiM5jWNkM_GhZlUH-jE68gGh2xJ6dG4U" value="form-psuQ7x3mMxCYiM5jWNkM_GhZlUH-jE68gGh2xJ6dG4U">
+                                        <input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="wrap-search-checkbox">
+                        <div class="search-form form-checkbox" id="search-top-form">
+                            <form action="https://devblogs.nvidia.com/" accept-charset="UTF-8" method="get" id="search-theme-form">
+                                <div>
+                                    <div id="search" class="container-inline">
+                                        <div class=" form-type-textfield form-item-search-theme-form form-item form-group">
+                                            <div class="input">
+                                                <div id="cuda-search-wrapper">
+                                                    <input type="checkbox" id="cuda-search" name="cuda-search" value="1"> <label for="cuda-search">Search NVIDIA Developer</label>
+                                                </div>
+                                                <input type="hidden" id="s" name="s" value="">
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="form_build_id" id="form-psuQ7x3mMxCYiM5jWNkM_GhZlUH-jE68gGh2xJ6dG4U" value="form-psuQ7x3mMxCYiM5jWNkM_GhZlUH-jE68gGh2xJ6dG4U">
+                                        <input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </li>
+                <li class="cuda-program-link">
+                    <a href="https://developer.nvidia.com/accelerated-computing-developer" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">Join                    </a>
+                </li>
+                <li>
+                    <a href="https://developer.nvidia.com/user" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">Login</a>
+                </li>
+            </ul>
+        </div>
+
+        <!--TESTING-->
+        <div class="mobile-search-field hidden-lg hidden-md hidden-sm">
+          <div class="wrap-search-field-mobile">
+            <div class="search-form-mobile form-field" id="search-top-form-mobile">
+              <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#" id="trigger-search-top-mobile-active">
+                  <i class="fa fa-search"></i>
+              </a>
+                <form action="https://devblogs.nvidia.com/" accept-charset="UTF-8" method="get" id="search-theme-form-input-mobile">
+                    <div>
+                        <div id="search" class="container-inline">
+                            <div class=" form-type-textfield form-item-search-theme-form form-item form-group">
+                                <div class="input">
+                                    <input type="text" placeholder="Search..." name="search_theme_form" id="search-top-bar-mobile" value="" title="Enter the terms you wish to search for." class="form-text form-control " style="">
+                                </div>
+                            </div>
+                            <input type="hidden" name="form_build_id" id="form-psuQ7x3mMxCYiM5jWNkM_GhZlUH-jE68gGh2xJ6dG4U" value="form-psuQ7x3mMxCYiM5jWNkM_GhZlUH-jE68gGh2xJ6dG4U">
+                            <input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="wrap-search-checkbox-mobile">
+              <div class="search-form form-checkbox" id="search-top-form">
+                  <form action="https://devblogs.nvidia.com/" accept-charset="UTF-8" method="get" id="search-theme-form">
+                      <div>
+                          <div id="search" class="container-inline">
+                              <div class=" form-type-textfield form-item-search-theme-form form-item form-group">
+                                  <div class="input">
+                                      <div id="cuda-search-wrapper-mobile">
+                                          <input type="checkbox" id="cuda-search-mobile" name="cuda-search-mobile" value="1">
+                                          <label for="cuda-search-mobile">Search NVIDIA Developer</label>
+                                      </div>
+                                      <input type="hidden" id="s" name="s" value="">
+                                  </div>
+                              </div>
+                              <input type="hidden" name="form_build_id" id="form-psuQ7x3mMxCYiM5jWNkM_GhZlUH-jE68gGh2xJ6dG4U" value="form-psuQ7x3mMxCYiM5jWNkM_GhZlUH-jE68gGh2xJ6dG4U">
+                              <input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form">
+                          </div>
+                      </div>
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--END TESTING-->
+    </div>
+</nav>
+    <header id="branding" role="banner" class="clearfix">
+        <nav id="access" role="navigation" class="clearfix">
+            <div class="container">
+                <h1 class="blog-title"><a href="https://devblogs.nvidia.com/" data-wpel-link="internal"><span>Nvidia</span>
+                        developer blog</a></h1>
+                <h3 class="assistive-text">Main menu</h3>
+                              <div class="skip-link"><a class="assistive-text" href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#content" title="Skip to primary content">Skip to primary content</a>
+                </div>
+                <div class="skip-link"><a class="assistive-text" href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#secondary" title="Skip to secondary content">Skip to secondary content</a>
+                </div>
+              
+              
+                <div class="home-header-button-box">
+                    <div class="home-button developer-button">
+                        <a target="_blank" href="https://news.developer.nvidia.com/" data-wpel-link="external" rel="nofollow external noopener noreferrer">
+                            <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+                            <span class="hidden-xs hidden-sm">Developer news</span>
+                        </a>
+                    </div>
+                    <div class="home-button subscribe-button">
+                        <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <span class="hidden-xs hidden-sm">Subscribe</span>
+                        </a>
+                    </div>
+                    <div class="home-button twitter-button">
+                        <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                            <span class="hidden-xs hidden-sm">Follow US</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav><!-- #access -->
+      
+        <div class="twitter-menu clearfix">
+            <div class="container">
+              <div class="flexbox-menu clearfix twitter-menu-content"><div class="twitter-menu-link">
+                                 <a onclick="window.open(&#39;https://twitter.com/NVIDIAAIDev&#39;,&#39;&#39;,&#39;Toolbar=0,Location=0,Directories=0,Status=0,Menubar=0,Scrollbars=1,Resizable=1,Width=800,Height=450, top=&#39;+((screen.height-600)/2)+&#39;,left=&#39;+((screen.width-700)/2)+&#39;&#39;);" href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#">
+                                   <i class="fa fa-twitter" aria-hidden="true"></i>
+                                   NVIDIAAIDev
+                                 </a>
+                               </div><div class="twitter-menu-link">
+                                 <a onclick="window.open(&#39;https://twitter.com/NVIDIAHPCDev&#39;,&#39;&#39;,&#39;Toolbar=0,Location=0,Directories=0,Status=0,Menubar=0,Scrollbars=1,Resizable=1,Width=800,Height=450, top=&#39;+((screen.height-600)/2)+&#39;,left=&#39;+((screen.width-700)/2)+&#39;&#39;);" href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#">
+                                   <i class="fa fa-twitter" aria-hidden="true"></i>
+                                   NVIDIAHPCDev
+                                 </a>
+                               </div><div class="twitter-menu-link">
+                                 <a onclick="window.open(&#39;https://twitter.com/NVIDIAGameDev&#39;,&#39;&#39;,&#39;Toolbar=0,Location=0,Directories=0,Status=0,Menubar=0,Scrollbars=1,Resizable=1,Width=800,Height=450, top=&#39;+((screen.height-600)/2)+&#39;,left=&#39;+((screen.width-700)/2)+&#39;&#39;);" href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#">
+                                   <i class="fa fa-twitter" aria-hidden="true"></i>
+                                   NVIDIAGameDev
+                                 </a>
+                               </div><div class="twitter-menu-link">
+                                 <a onclick="window.open(&#39;https://twitter.com/nvidiaembedded&#39;,&#39;&#39;,&#39;Toolbar=0,Location=0,Directories=0,Status=0,Menubar=0,Scrollbars=1,Resizable=1,Width=800,Height=450, top=&#39;+((screen.height-600)/2)+&#39;,left=&#39;+((screen.width-700)/2)+&#39;&#39;);" href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#">
+                                   <i class="fa fa-twitter" aria-hidden="true"></i>
+                                   NVIDIAEmbedded
+                                 </a>
+                               </div><div class="twitter-menu-link">
+                                 <a onclick="window.open(&#39;https://twitter.com/NVIDIADrive&#39;,&#39;&#39;,&#39;Toolbar=0,Location=0,Directories=0,Status=0,Menubar=0,Scrollbars=1,Resizable=1,Width=800,Height=450, top=&#39;+((screen.height-600)/2)+&#39;,left=&#39;+((screen.width-700)/2)+&#39;&#39;);" href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#">
+                                   <i class="fa fa-twitter" aria-hidden="true"></i>
+                                   NVIDIADRIVE
+                                 </a>
+                               </div><div class="twitter-menu-link">
+                                 <a onclick="window.open(&#39;https://twitter.com/NVIDIADesign&#39;,&#39;&#39;,&#39;Toolbar=0,Location=0,Directories=0,Status=0,Menubar=0,Scrollbars=1,Resizable=1,Width=800,Height=450, top=&#39;+((screen.height-600)/2)+&#39;,left=&#39;+((screen.width-700)/2)+&#39;&#39;);" href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#">
+                                   <i class="fa fa-twitter" aria-hidden="true"></i>
+                                   NVIDIADesign
+                                 </a>
+                               </div></div>            </div>
+        </div>
+
+        <div class="subscribe-menu clearfix">
+            <div class="container">
+                <script src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/forms2.min.js.download"></script>
+                <form id="mktoForm_4191" novalidate="novalidate" class="mktoForm mktoHasWidth mktoLayoutAbove" style="font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: rgb(51, 51, 51); width: 641px;"><style type="text/css">.mktoForm .mktoButtonWrap.mktoSimple .mktoButton {
+color:#fff;
+border:1px solid #75ae4c;
+padding:0.4em 1em;
+font-size:1em;
+background-color:#99c47c;
+background-image: -webkit-gradient(linear, left top, left bottom, from(#99c47c), to(#75ae4c));
+background-image: -webkit-linear-gradient(top, #99c47c, #75ae4c);
+background-image: -moz-linear-gradient(top, #99c47c, #75ae4c);
+background-image: linear-gradient(to bottom, #99c47c, #75ae4c);
+}
+.mktoForm .mktoButtonWrap.mktoSimple .mktoButton:hover {
+border:1px solid #447f19;
+}
+.mktoForm .mktoButtonWrap.mktoSimple .mktoButton:focus {
+outline:none;
+border:1px solid #447f19;
+}
+.mktoForm .mktoButtonWrap.mktoSimple .mktoButton:active{
+background-color:#75ae4c;
+background-image: -webkit-gradient(linear, left top, left bottom, from(#75ae4c), to(#99c47c));
+background-image: -webkit-linear-gradient(top, #75ae4c, #99c47c);
+background-image: -moz-linear-gradient(top, #75ae4c, #99c47c);
+background-image: linear-gradient(to bottom, #75ae4c, #99c47c);
+}
+</style><div class="mktoFormRow title-form col-lg-2 col-md-2 col-sm-12 col-xs-12"><div class="mktoFormCol" style="margin-bottom: 10px;"><div class="mktoOffset mktoHasWidth" style="width: 10px;"></div><div class="mktoFieldWrap"><div class="mktoHtmlText mktoHasWidth" style="width: 594px;"><strong><span style="color: #76b900 !important; font-size: 22px;">GET THE LATEST&nbsp;DEVELOPER NEWS<br></span></strong><em><span style="color: #004831; font-size: 16px;">Sign up for developer news, announcements, and more from NVIDIA.</span></em><hr size="2"></div><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="subscribe-wrap col-lg-5 col-md-5 col-sm-6 col-xs-12"><div class="mktoFormRow"><div class="mktoFieldDescriptor mktoFormCol" style="margin-bottom: 10px;"><div class="mktoOffset" style="width: 10px;"></div><div class="mktoFieldWrap mktoRequiredField"><label for="FirstName" class="mktoLabel mktoHasWidth" style="width: 5px;"><div class="mktoAsterix">*</div></label><div class="mktoGutter mktoHasWidth" style="width: 10px;"></div><input id="FirstName" name="FirstName" placeholder="First Name:" maxlength="255" type="text" class="mktoField mktoTextField mktoHasWidth mktoRequired" style="width: 310px;"><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoFieldDescriptor mktoFormCol" style="margin-bottom: 10px;"><div class="mktoOffset" style="width: 10px;"></div><div class="mktoFieldWrap mktoRequiredField"><label for="LastName" class="mktoLabel mktoHasWidth" style="width: 5px;"><div class="mktoAsterix">*</div></label><div class="mktoGutter mktoHasWidth" style="width: 10px;"></div><input id="LastName" name="LastName" placeholder="Last Name:" maxlength="255" type="text" class="mktoField mktoTextField mktoHasWidth mktoRequired" style="width: 310px;"><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoFormRow"><div class="mktoFieldDescriptor mktoFormCol" style="margin-bottom: 10px;"><div class="mktoOffset" style="width: 10px;"></div><div class="mktoFieldWrap mktoRequiredField"><label for="Email" class="mktoLabel mktoHasWidth" style="width: 5px;"><div class="mktoAsterix">*</div></label><div class="mktoGutter mktoHasWidth" style="width: 10px;"></div><input id="Email" name="Email" placeholder="Email Address:" maxlength="255" type="email" class="mktoField mktoEmailField mktoHasWidth mktoRequired" style="width: 310px;"><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoFieldDescriptor mktoFormCol" style="margin-bottom: 10px;"><div class="mktoOffset" style="width: 10px;"></div><div class="mktoFieldWrap mktoRequiredField"><label for="Company" class="mktoLabel mktoHasWidth" style="width: 5px;"><div class="mktoAsterix">*</div></label><div class="mktoGutter mktoHasWidth" style="width: 10px;"></div><input id="Company" name="Company" placeholder="Company/Organization Name:" maxlength="255" type="text" class="mktoField mktoTextField mktoHasWidth mktoRequired" style="width: 310px;"><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoFormRow"><div class="mktoFieldDescriptor mktoFormCol" style="margin-bottom: 10px;"><div class="mktoOffset" style="width: 10px;"></div><div class="mktoFieldWrap mktoRequiredField"><label for="Country" class="mktoLabel mktoHasWidth" style="width: 5px;"><div class="mktoAsterix">*</div></label><div class="mktoGutter mktoHasWidth" style="width: 10px;"></div><select id="Country" name="Country" class="mktoField mktoHasWidth mktoRequired" style="width: 310px;"><option value="">Select Location:</option><option value="United States">United States</option><option value="Afghanistan">Afghanistan </option><option value="Aland Islands">Aland Islands</option><option value="Albania">Albania</option><option value="Algeria">Algeria</option><option value="American Samoa">American Samoa</option><option value="Andorra">Andorra</option><option value="Angola">Angola</option><option value="Anguilla">Anguilla</option><option value="Antarctica">Antarctica</option><option value="Antigua and Barbuda">Antigua and Barbuda</option><option value="Argentina">Argentina</option><option value="Armenia">Armenia</option><option value="Aruba">Aruba</option><option value="Australia">Australia</option><option value="Austria">Austria</option><option value="Azerbaijan">Azerbaijan</option><option value="Bahamas">Bahamas</option><option value="Bahrain">Bahrain</option><option value="Bangladesh">Bangladesh</option><option value="Barbados">Barbados</option><option value="Belarus">Belarus</option><option value="Belgium">Belgium</option><option value="Belize">Belize</option><option value="Benin">Benin</option><option value="Bermuda">Bermuda</option><option value="Bhutan">Bhutan</option><option value="Bolivia">Bolivia</option><option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option><option value="Botswana">Botswana</option><option value="Bouvet Island">Bouvet Island</option><option value="Brazil">Brazil</option><option value="British Indian Ocean Territory">British Indian Ocean Territory</option><option value="British Virgin Islands">British Virgin Islands</option><option value="Brunei Darussalam">Brunei Darussalam</option><option value="Bulgaria">Bulgaria</option><option value="Burkina Faso">Burkina Faso</option><option value="Burundi">Burundi</option><option value="Cambodia">Cambodia</option><option value="Cameroon">Cameroon</option><option value="Canada">Canada</option><option value="Cape Verde">Cape Verde</option><option value="Cayman Islands">Cayman Islands</option><option value="Central African Republic">Central African Republic</option><option value="Chad">Chad</option><option value="Chile">Chile</option><option value="China">China</option><option value="Christmas Island">Christmas Island</option><option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option><option value="Colombia">Colombia</option><option value="Congo">Congo</option><option value="Congo, Democratic Republic of the">Congo, Democratic Republic of the</option><option value="Cook Islands">Cook Islands </option><option value="Costa Rica">Costa Rica</option><option value="Cote D&#39;Ivoire">Cote D'Ivoire</option><option value="Croatia">Croatia</option><option value="Cuba">Cuba</option><option value="Curaçao">Curaçao</option><option value="Cyprus">Cyprus</option><option value="Czech Republic">Czech Republic</option><option value="Denmark">Denmark</option><option value="Dominica">Dominica</option><option value="Dominican Republic">Dominican Republic</option><option value="Ecuador">Ecuador</option><option value="Egypt">Egypt</option><option value="El Salvador">El Salvador</option><option value="Equatorial Guinea">Equatorial Guinea</option><option value="Estonia">Estonia</option><option value="Ethiopia">Ethiopia</option><option value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas) </option><option value="Faroe Islands">Faroe Islands</option><option value="Fiji">Fiji</option><option value="Finland">Finland</option><option value="France">France</option><option value="French Guiana">French Guiana</option><option value="French Polynesia">French Polynesia</option><option value="French Southern Territories">French Southern Territories</option><option value="Gabon">Gabon </option><option value="Georgia">Georgia</option><option value="Germany">Germany</option><option value="Ghana">Ghana</option><option value="Gibraltar">Gibraltar</option><option value="Greece">Greece</option><option value="Greenland">Greenland</option><option value="Grenada">Grenada</option><option value="Guadeloupe">Guadeloupe</option><option value="Guatemala">Guatemala</option><option value="Guernsey">Guernsey</option><option value="Guinea-Bissau">Guinea-Bissau</option><option value="Guyana">Guyana</option><option value="Haiti">Haiti</option><option value="Heard Island and Mcdonald Islands">Heard Island and Mcdonald Islands</option><option value="Honduras">Honduras</option><option value="Hong Kong">Hong Kong</option><option value="Hungary">Hungary</option><option value="Iceland">Iceland</option><option value="India">India</option><option value="Indonesia">Indonesia</option><option value="Iran">Iran</option><option value="Iraq">Iraq</option><option value="Ireland">Ireland</option><option value="Isle of Man">Isle of Man </option><option value="Israel">Israel</option><option value="Italy">Italy</option><option value="Jamaica">Jamaica</option><option value="Japan">Japan</option><option value="Jersey">Jersey</option><option value="Jordan">Jordan</option><option value="Kazakhstan">Kazakhstan</option><option value="Kenya">Kenya</option><option value="Kiribati">Kiribati</option><option value="Korea, Democratic People&#39;s Republic of">Korea, Democratic People's Republic of</option><option value="Korea, Republic of">Korea, Republic of</option><option value="Kuwait">Kuwait</option><option value="Kyrgyzstan">Kyrgyzstan</option><option value="Lao People&#39;s Democratic Republic">Lao People's Democratic Republic </option><option value="Latvia">Latvia</option><option value="Lebanon">Lebanon</option><option value="Lesotho">Lesotho</option><option value="Liberia">Liberia</option><option value="Libya">Libya</option><option value="Liechtenstein">Liechtenstein</option><option value="Lithuania">Lithuania</option><option value="Luxembourg">Luxembourg</option><option value="Macao">Macao</option><option value="Macedonia">Macedonia</option><option value="Madagascar">Madagascar</option><option value="Malawi">Malawi</option><option value="Malaysia">Malaysia</option><option value="Maldives">Maldives</option><option value="Mali">Mali</option><option value="Malta">Malta</option><option value="Martinique">Martinique</option><option value="Mauritania">Mauritania</option><option value="Mauritius">Mauritius</option><option value="Mayotte">Mayotte</option><option value="Mexico">Mexico</option><option value="Micronesia, Federated States of">Micronesia, Federated States of</option><option value="Moldova, Republic of">Moldova, Republic of</option><option value="Monaco">Monaco</option><option value="Mongolia">Mongolia</option><option value="Montenegro">Montenegro</option><option value="Montserrat">Montserrat</option><option value="Morocco">Morocco</option><option value="Mozambique">Mozambique</option><option value="Myanmar">Myanmar</option><option value="Namibia">Namibia</option><option value="Nauru">Nauru</option><option value="Nepal">Nepal</option><option value="Netherlands Antilles">Netherlands Antilles</option><option value="New Caledonia">New Caledonia</option><option value="New Zealand">New Zealand</option><option value="Nicaragua">Nicaragua</option><option value="Niger">Niger</option><option value="Nigeria">Nigeria</option><option value="Niue">Niue </option><option value="Norfolk Island">Norfolk Island</option><option value="Norway">Norway</option><option value="Oman">Oman</option><option value="Pakistan">Pakistan</option><option value="Palau">Palau</option><option value="Palestinian Territory, Occupied">Palestinian Territory, Occupied</option><option value="Panama">Panama</option><option value="Papua New Guinea">Papua New Guinea</option><option value="Paraguay">Paraguay</option><option value="Peru">Peru</option><option value="Philippines">Philippines</option><option value="Pitcairn">Pitcairn</option><option value="Poland">Poland</option><option value="Portugal">Portugal</option><option value="Puerto Rico">Puerto Rico</option><option value="Qatar">Qatar</option><option value="Romania">Romania</option><option value="Russian Federation">Russian Federation</option><option value="Rwanda">Rwanda</option><option value="Saint Helena">Saint Helena</option><option value="Saint Lucia">Saint Lucia</option><option value="Saint-Barthélemy">Saint-Barthélemy</option><option value="Saint-Martin (French part)">Saint-Martin (French part)</option><option value="San Marino">San Marino</option><option value="Sao Tome and Principe">Sao Tome and Principe</option><option value="Saudi Arabia">Saudi Arabia</option><option value="Senegal">Senegal</option><option value="Serbia">Serbia</option><option value="Seychelles">Seychelles</option><option value="Sierra Leone">Sierra Leone</option><option value="Singapore">Singapore</option><option value="Slovakia">Slovakia</option><option value="Slovenia">Slovenia</option><option value="Solomon Islands">Solomon Islands</option><option value="Somalia">Somalia</option><option value="South Africa">South Africa</option><option value="South Georgia and the South Sandwich Islands">South Georgia and the South Sandwich Islands</option><option value="South Sudan">South Sudan</option><option value="Spain">Spain</option><option value="Sri Lanka">Sri Lanka</option><option value="Sudan">Sudan</option><option value="Suriname">Suriname</option><option value="Swaziland">Swaziland</option><option value="Sweden">Sweden</option><option value="Switzerland">Switzerland</option><option value="Syria">Syria</option><option value="Taiwan">Taiwan</option><option value="Tajikistan">Tajikistan</option><option value="Tanzania">Tanzania</option><option value="Thailand">Thailand</option><option value="The Netherlands">The Netherlands</option><option value="Timor-Leste">Timor-Leste</option><option value="Togo">Togo</option><option value="Tokelau">Tokelau </option><option value="Tonga">Tonga</option><option value="Trinidad and Tobago">Trinidad and Tobago</option><option value="Tunisia">Tunisia</option><option value="Turkey">Turkey</option><option value="Turkmenistan">Turkmenistan</option><option value="Turks and Caicos Islands">Turks and Caicos Islands</option><option value="Tuvalu">Tuvalu</option><option value="Uganda">Uganda</option><option value="Ukraine">Ukraine</option><option value="United Arab Emirates">United Arab Emirates</option><option value="United Kingdom">United Kingdom</option><option value="United States">United States</option><option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option><option value="Uruguay">Uruguay</option><option value="Uzbekistan">Uzbekistan</option><option value="Vanuatu">Vanuatu</option><option value="Vatican City State">Vatican City State </option><option value="Venezuela">Venezuela</option><option value="Viet Nam">Viet Nam</option><option value="Virgin Islands, U.S.">Virgin Islands, U.S.</option><option value="Western Sahara">Western Sahara</option><option value="Yemen">Yemen</option><option value="Zambia">Zambia</option><option value="Zimbabwe">Zimbabwe</option></select><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoFieldDescriptor mktoFormCol" style="margin-bottom: 10px;"><div class="mktoOffset" style="width: 10px;"></div><div class="mktoFieldWrap mktoRequiredField"><label for="Industry" class="mktoLabel mktoHasWidth" style="width: 5px;"><div class="mktoAsterix">*</div></label><div class="mktoGutter mktoHasWidth" style="width: 10px;"></div><select id="Industry" name="Industry" class="mktoField mktoHasWidth mktoRequired" style="width: 310px;"><option value="">Select Industry:</option><option value="Architecture, Eng and Construction">Architecture, Eng and Construction</option><option value="Automotive">Automotive</option><option value="Defense/Government">Defense/Government</option><option value="Financial Services Industry (FSI)">Financial Services Industry (FSI)</option><option value="Healthcare">Healthcare</option><option value="Higher Ed/Research">Higher Ed/Research</option><option value="IT Services">IT Services</option><option value="Manufacturing">Manufacturing</option><option value="Media/Entertainment">Media/Entertainment</option><option value="Oil &amp; Gas/Energy">Oil &amp; Gas/Energy</option><option value="Retail/Etail">Retail/Etail</option><option value="Supercomputing">Supercomputing</option><option value="Telecommunications">Telecommunications</option><option value="Other">Other</option></select><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoFormRow"><div class="mktoFieldDescriptor mktoFormCol" style="margin-bottom: 10px;"><div class="mktoOffset" style="width: 10px;"></div><div class="mktoFieldWrap mktoRequiredField"><label for="Job_Role__c" class="mktoLabel mktoHasWidth" style="width: 5px;"><div class="mktoAsterix">*</div></label><div class="mktoGutter mktoHasWidth" style="width: 10px;"></div><select id="Job_Role__c" name="Job_Role__c" class="mktoField mktoHasWidth mktoRequired" style="width: 310px;"><option value="">Select Job Role:</option><option value="Chief Executive Officer (CEO)">Chief Executive Officer (CEO)</option><option value="Chief Information Office (CIO)">Chief Information Office (CIO)</option><option value="Chief Technology Officer (CTO)">Chief Technology Officer (CTO)</option><option value="Consultant">Consultant</option><option value="Data Scientist">Data Scientist</option><option value="Developer/Programmer">Developer/Programmer</option><option value="Engineer">Engineer</option><option value="Film/Video Editor">Film/Video Editor</option><option value="Graphic Designer/Animator">Graphic Designer/Animator</option><option value="Industrial Designer/Product Designer">Industrial Designer/Product Designer</option><option value="IT Administrator/Systems Administrator">IT Administrator/Systems Administrator</option><option value="IT Manager/Director of IT/ VP of IT">IT Manager/Director of IT/ VP of IT</option><option value="Marketing Manager">Marketing Manager</option><option value="Professor/Department Advisor">Professor/Department Advisor</option><option value="Purchasing Manager">Purchasing Manager</option><option value="Research Scientist">Research Scientist</option><option value="Sales Engineer">Sales Engineer</option><option value="Sales Rep/Sales Manager">Sales Rep/Sales Manager</option><option value="Student/Post Grad">Student/Post Grad</option><option value="Other">Other</option></select><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoFieldDescriptor mktoFormCol" style="margin-bottom: 10px;"><div class="mktoOffset" style="width: 10px;"></div><div class="mktoFieldWrap"><label for="Title" class="mktoLabel mktoHasWidth" style="width: 5px;"><div class="mktoAsterix">*</div></label><div class="mktoGutter mktoHasWidth" style="width: 10px;"></div><input id="Title" name="Title" placeholder="Job Title (Optional):" maxlength="255" type="text" class="mktoField mktoTextField mktoHasWidth" style="width: 310px;"><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoClear"></div></div></div><div class="subscribe-wrap col-lg-5 col-md-5 col-sm-6 col-xs-12"><div class="mktoFormRow"><div class="mktoFieldDescriptor mktoFormCol" style="margin-bottom: 10px;"><div class="mktoOffset" style="width: 10px;"></div><div class="mktoFieldWrap mktoRequiredField"><label for="Holding_Field_Opt_In_Topics" class="mktoLabel mktoHasWidth" style="width: 296px;"><div class="mktoAsterix">*</div>Select the Topics You Are Interested In:</label><div class="mktoGutter mktoHasWidth" style="width: 10px;"></div><div class="mktoLogicalField mktoCheckboxList mktoHasWidth mktoRequired" style="width: 310px;"><input name="Holding_Field_Opt_In_Topics" id="mktoCheckbox_169705_0" type="checkbox" value="Dev Topic - AI" class="mktoField"><label for="mktoCheckbox_169705_0">AI / Deep Learning</label><input name="Holding_Field_Opt_In_Topics" id="mktoCheckbox_169705_1" type="checkbox" value="Dev Topic - VR" class="mktoField"><label for="mktoCheckbox_169705_1">AR / VR</label><input name="Holding_Field_Opt_In_Topics" id="mktoCheckbox_169705_2" type="checkbox" value="Dev Topic - Robotics" class="mktoField"><label for="mktoCheckbox_169705_2">Autonomous Machines</label><input name="Holding_Field_Opt_In_Topics" id="mktoCheckbox_169705_3" type="checkbox" value="Dev Topic - Autonomous Vehicles" class="mktoField"><label for="mktoCheckbox_169705_3">Autonomous Vehicles</label><input name="Holding_Field_Opt_In_Topics" id="mktoCheckbox_169705_4" type="checkbox" value="Dev Topic - Design Viz" class="mktoField"><label for="mktoCheckbox_169705_4">Design &amp; Vizualization</label><input name="Holding_Field_Opt_In_Topics" id="mktoCheckbox_169705_5" type="checkbox" value="Dev Topic - Game Dev" class="mktoField"><label for="mktoCheckbox_169705_5">Game Development</label><input name="Holding_Field_Opt_In_Topics" id="mktoCheckbox_169705_6" type="checkbox" value="Dev Topic - Acc Comp" class="mktoField"><label for="mktoCheckbox_169705_6">High Performance Computing</label><input name="Holding_Field_Opt_In_Topics" id="mktoCheckbox_169705_7" type="checkbox" value="Dev Topic - Smart Cities" class="mktoField"><label for="mktoCheckbox_169705_7">IoT / Smart Cities</label></div><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoFieldDescriptor mktoFormCol" style="margin-bottom: 10px;"><div class="mktoOffset" style="width: 10px;"></div><div class="mktoFieldWrap mktoRequiredField"><label for="SURVEY_QUESTION_6" class="mktoLabel mktoHasWidth" style="width: 310px;"><div class="mktoAsterix">*</div>I am over 13 years old.</label><div class="mktoGutter mktoHasWidth" style="width: 10px;"></div><div class="mktoLogicalField mktoCheckboxList mktoHasWidth mktoRequired" style="width: 58px;"><input name="SURVEY_QUESTION_6" id="SURVEY_QUESTION_6" type="checkbox" value="yes" class="mktoField"><label for="SURVEY_QUESTION_6"></label></div><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoFormRow"><input type="hidden" name="ncid" class="mktoField mktoFieldDescriptor mktoFormCol" value="" style="margin-bottom: 10px;"><div class="mktoClear"></div></div><div class="mktoFormRow"><div class="mktoFormCol" style="margin-bottom: 10px;"><div class="mktoOffset mktoHasWidth" style="width: 10px;"></div><div class="mktoFieldWrap"><div class="mktoHtmlText mktoHasWidth" style="width: 260px;"><span style="font-size: 10px;"><span>View NVIDIA's </span><a href="http://www.nvidia.com/object/privacy_policy.html" target="_blank" style="color: #76b900; text-decoration: none;">Privacy Policy</a><span>.</span></span></div><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoClear"></div></div><div class="mktoFormRow"><input type="hidden" name="Language" class="mktoField mktoFieldDescriptor mktoFormCol" value="en_us" style="margin-bottom: 10px;"><div class="mktoClear"></div></div></div><div class="mktoFormRow hidden"><input type="hidden" name="Holding_Field_Dev_Opt_In_Sentence" class="mktoField mktoFieldDescriptor mktoFormCol" value="Sign up for developer news, announcements, and more from NVIDIA." style="margin-bottom: 10px;"><div class="mktoClear"></div></div><div class="mktoFormRow hidden"><input type="hidden" name="Holding_Field_Dev_Opt_In_Source" class="mktoField mktoFieldDescriptor mktoFormCol" value="Web Form: mktoForm_4149, NALA_DEV_WF_2017_Newsletter Subscribe Parallel Forall DevZone Form.Form (en_us)" style="margin-bottom: 10px;"><div class="mktoClear"></div></div><div class="mktoButtonRow"><span class="mktoButtonWrap mktoSimple" style="margin-left: 16px;"><button type="submit" class="mktoButton" disabled="">SUBSCRIBE</button></span></div><input type="hidden" name="formid" class="mktoField mktoFieldDescriptor" value="4191"><input type="hidden" name="munchkinId" class="mktoField mktoFieldDescriptor" value="156-OFN-742"></form>
+                <script>MktoForms2.loadForm("//app-sj14.marketo.com", "156-OFN-742", 4191);</script>
+                <script>
+                  MktoForms2.whenReady(function (form) {
+                    jQuery('.mktoFormRow:eq(0)').addClass('title-form col-lg-2 col-md-2 col-sm-12 col-xs-12');
+                    jQuery('.mktoFormRow:eq(9), .mktoFormRow:eq(10),.mktoFormRow:eq(11)').addClass('hidden');
+                    jQuery('.mktoFormRow:eq(1), .mktoFormRow:eq(2), .mktoFormRow:eq(3), .mktoFormRow:eq(4)').wrapAll('<div class="subscribe-wrap col-lg-5 col-md-5 col-sm-6 col-xs-12"></div>');
+                    jQuery('.mktoFormRow:eq(5), .mktoFormRow:eq(6), .mktoFormRow:eq(7), .mktoFormRow:eq(8)').wrapAll('<div class="subscribe-wrap col-lg-5 col-md-5 col-sm-6 col-xs-12"></div>');
+
+                    jQuery(':input[type="submit"]').prop('disabled', true);
+
+                    var form = jQuery('.mktoForm');
+                    var inputs = form.find(':input');
+                    form.on('change input paste', function(){
+                        var status = [];
+                        inputs.each(function(){
+                          if(this.value == '' || !jQuery(':input[type="checkbox"]').is(':checked')){
+                            return status.push('invalid');
+                          }
+                          else {
+                            return status.push('valid');
+                          }
+                        });
+
+                        if(status[0] == 'valid' && status[1] == 'valid' && status[2] == 'valid' && status[3] == 'valid' && status[4] == 'valid' && status[5] == 'valid' && status[6] == 'valid'){
+                          jQuery(':input[type="submit"]').prop('disabled', false);
+                        } else {
+                          jQuery(':input[type="submit"]').prop('disabled', true);
+                        }
+                    });
+                  });
+                </script>
+            </div>
+        </div>
+    </header>
+
+    <div class="all-categories">
+      <nav class="navbar navbar-default topic-navigation">
+          <div class="hidden-sm hidden-md hidden-lg">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <p class="topic-title hidden-sm hidden-md hidden-lg">Topics</p>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav hidden-sm hidden-md hidden-lg">
+                	<li class="cat-item cat-item-443"><a href="https://devblogs.nvidia.com/category/artificial-intelligence/" title="AI and Deep learning are used in the research community and in industry to help solve many big data problems such as computer vision, speech recognition, and natural language processing. The NVIDIA Deep Learning SDK provides high-performance tools and libraries to power innovative GPU-accelerated machine learning applications in the cloud, data centers, workstations, and embedded platforms." data-wpel-link="internal">AI / Deep Learning</a>
+</li>
+	<li class="cat-item cat-item-446"><a href="https://devblogs.nvidia.com/category/autonomous-machines/" title="Today&#39;s robots do more than just perform tasks. They learn, adapt, and evolve using capabilities like machine learning, computer vision, navigation, and more. NVIDIA Jetson uses the power of deep learning to drive this exciting new era of smart embedded robotics—from manufacturing and agriculture to security and home-based healthcare." data-wpel-link="internal">Autonomous Machines</a>
+</li>
+	<li class="cat-item cat-item-445"><a href="https://devblogs.nvidia.com/category/autonomous-vehicles/" title="The NVIDIA DRIVE Platform is an autonomous computing platform that enables automakers and Tier-1 suppliers to accelerate production of automated and autonomous vehicles. It scales from a palm-sized, energy efficient module for AutoCruise capabilities, to a powerful AI supercomputer capable of autonomous driving." data-wpel-link="internal">Autonomous Vehicles</a>
+</li>
+	<li class="cat-item cat-item-914"><a href="https://devblogs.nvidia.com/category/data-science/" title="Vision, IoT, HPC, and related technologies generate vast amounts of data. The parallel nature of NVIDIA GPUs make them ideal for helping make sense of these massive stores of data." data-wpel-link="internal">Data Science</a>
+</li>
+	<li class="cat-item cat-item-457"><a href="https://devblogs.nvidia.com/category/graphics-simulation/" title="Graphics and simulation developers need the best tools, samples, and libraries to bring their creations to life. NVIDIA provides access to the best technology in visual computing for game developers, professional graphics users, and virtual reality" data-wpel-link="internal">Graphics / Simulation</a>
+</li>
+	<li class="cat-item cat-item-444"><a href="https://devblogs.nvidia.com/category/hpc/" title="
+
+GPU-accelerated computing is the use of a graphics processing unit (GPU) together with a CPU to accelerate deep learning, analytics, and engineering applications. With NVIDIA HPC SDKs, you can develop, optimize and deploy GPU-accelerated applications using widely-used languages such as C, C++, Python, Fortran and MATLAB." data-wpel-link="internal">HPC</a>
+</li>
+	<li class="cat-item cat-item-447"><a href="https://devblogs.nvidia.com/category/iva-iot/" title="
+
+
+
+The growing number of IoT devices and sensors capture enormous amount of data with hidden insights. Unlock these insights in real time and deploy valuable capabilities with AI-powered, intelligent video analytics (IVA). Developers, data scientists, researchers, and students are building innovative applications and services for a variety of use cases in multiple industries, including smart cities, smart hospitals, traffic planning, retail analytics, and more. NVIDIA pre-trained models, SDKs, and toolkits enable you to go to market faster with optimized performance on NVIDIA GPUs, achieving high throughput with low latency.
+
+" data-wpel-link="internal">IVA/IoT</a>
+</li>
+              </ul>
+
+              <div class="visible-lg-block visible-md-block visible-sm-block">
+                <div class="all-categories-content"><a href="https://devblogs.nvidia.com/category/artificial-intelligence/" data-wpel-link="internal">AI / Deep Learning</a></div><div class="all-categories-content"><a href="https://devblogs.nvidia.com/category/autonomous-machines/" data-wpel-link="internal">Autonomous Machines</a></div><div class="all-categories-content"><a href="https://devblogs.nvidia.com/category/autonomous-vehicles/" data-wpel-link="internal">Autonomous Vehicles</a></div><div class="all-categories-content"><a href="https://devblogs.nvidia.com/category/data-science/" data-wpel-link="internal">Data Science</a></div><div class="all-categories-content"><a href="https://devblogs.nvidia.com/category/graphics-simulation/" data-wpel-link="internal">Graphics / Simulation</a></div><div class="all-categories-content"><a href="https://devblogs.nvidia.com/category/hpc/" data-wpel-link="internal">HPC</a></div><div class="all-categories-content"><a href="https://devblogs.nvidia.com/category/iva-iot/" data-wpel-link="internal">IVA/IoT</a></div>              </div>
+          </div>
+      </nav>
+    </div>
+
+    <div id="main" class="clearfix">
+
+<div id="pf-post-view">
+    <div class="container">
+
+                  <article id="post-6063" class="post-6063 post type-post status-publish format-standard has-post-thumbnail hentry category-artificial-intelligence tag-cudnn tag-deep-learning tag-deep-neural-networks tag-machine-learning tag-neural-networks">
+                <header class="entry-header">
+                  <div class="category-posts-about"><a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/" title="Artificial Intelligence" data-wpel-link="internal">Artificial Intelligence</a></div> &nbsp; <div class="category-posts-about"><a href="https://devblogs.nvidia.com/category/artificial-intelligence/" title="AI / Deep Learning" data-wpel-link="internal">AI / Deep Learning</a></div> &nbsp; 
+                    <h1 class="entry-title">Deep Learning in a Nutshell: Core Concepts</h1>
+
+                    <div class="entry-meta">
+                        <div class="home-posts-author">
+                          By <a href="https://devblogs.nvidia.com/author/tdettmers/" title="Posts by Tim Dettmers" class="author url fn" rel="author" data-wpel-link="internal">Tim Dettmers</a> | <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/" title="5:50 pm" rel="bookmark" data-wpel-link="internal"><time class="entry-date" datetime="5:50 pm" pubdate="">November 3, 2015 </time></a>
+                            <div class="posts-tag">
+                                <i class="fa fa-tag" aria-hidden="true"></i>
+                              Tags: <a href="https://devblogs.nvidia.com/tag/cudnn/" rel="tag" data-wpel-link="internal">cuDNN</a>, <a href="https://devblogs.nvidia.com/tag/deep-learning/" rel="tag" data-wpel-link="internal">Deep Learning</a>, <a href="https://devblogs.nvidia.com/tag/deep-neural-networks/" rel="tag" data-wpel-link="internal">Deep Neural Networks</a>, <a href="https://devblogs.nvidia.com/tag/machine-learning/" rel="tag" data-wpel-link="internal">machine learning</a>, <a href="https://devblogs.nvidia.com/tag/neural-networks/" rel="tag" data-wpel-link="internal">Neural Networks</a><br>                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="entry-content">
+                  <div style="margin-top: 0px; margin-bottom: 0px;" class="sharethis-inline-share-buttons"></div><p><img class="alignright wp-image-5782 size-medium" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/DL_dog_340x340-300x300.jpg" alt="DL_dog_340x340" width="300" height="300" srcset="https://devblogs.nvidia.com/wp-content/uploads/2015/08/DL_dog_340x340-300x300.jpg 300w, https://devblogs.nvidia.com/wp-content/uploads/2015/08/DL_dog_340x340-90x90.jpg 90w, https://devblogs.nvidia.com/wp-content/uploads/2015/08/DL_dog_340x340-150x150.jpg 150w, https://devblogs.nvidia.com/wp-content/uploads/2015/08/DL_dog_340x340.jpg 340w" sizes="(max-width: 300px) 100vw, 300px">This post is the first in a series I’ll be writing for Parallel Forall that aims to provide an intuitive and gentle introduction to<a href="https://developer.nvidia.com/deep-learning" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer"> deep learning</a>. It covers the most important deep learning concepts and aims to provide an understanding of each concept rather than its mathematical and theoretical details. While the mathematical terminology is sometimes necessary and can further understanding, these posts use analogies and images whenever possible to provide easily digestible bits comprising an intuitive overview of the field of deep learning.</p>
+<p>I wrote this series in a glossary style so it can also be used as a reference for deep learning concepts.</p>
+<p>Part 1 focuses on introducing the main concepts of deep learning. <a href="https://devblogs.nvidia.com/parallelforall/deep-learning-nutshell-history-training/" data-wpel-link="internal">Part 2</a> provides historical background and delves into the training procedures, algorithms and practical tricks that are used in training for deep learning. <a href="https://devblogs.nvidia.com/parallelforall/deep-learning-nutshell-sequence-learning/" data-wpel-link="internal">Part 3</a> covers sequence learning, including recurrent neural networks, LSTMs, and encoder-decoder systems for neural machine translation. <a href="https://devblogs.nvidia.com/parallelforall/deep-learning-nutshell-reinforcement-learning/" data-wpel-link="internal">Part 4</a> covers reinforcement learning.</p>
+<h2>Core Concepts</h2>
+<h3><a id="machine-learning"></a>Machine Learning</h3>
+<p>In machine learning we (1) take some data, (2) train a model on that data, and (3) use the trained model to make predictions on new data. The process of <a href="https://devblogs.nvidia.com/parallelforall/deep-learning-nutshell-history-training#training" data-wpel-link="internal">training</a> a model can be seen as a learning process where the model is exposed to new, unfamiliar data step by step. At each step, the model makes predictions and gets feedback about how accurate its generated predictions were. This feedback, which is provided in terms of an error according to some measure (for example distance from the correct solution), is used to correct the errors made in prediction.</p>
+<p>The learning process is often a game of back-and-forth in the parameter space: If you tweak a parameter of the model to get a prediction right, the model may have in such that it gets a previously correct prediction wrong. It may take many iterations to train a model with good predictive performance. This iterative predict-and-adjust process continues until the predictions of the model no longer improve.</p>
+<h3><a id="feature-engineering"></a>Feature Engineering</h3>
+<p>Feature engineering is the art of extracting useful patterns from data that will make it easier for <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#machine-learning">Machine Learning</a> models to distinguish between classes. For example, you might take the number of greenish vs. bluish pixels as an indicator of whether a land or water animal is in some picture. This feature is helpful for a machine learning model because it limits the number of classes that need to be considered for a good classification.<span id="more-6063"></span></p>
+<p>Feature engineering is the most important skill when you want to achieve good results for most predictions tasks. However, it is difficult to learn and master since different data sets and different kinds of data require different feature engineering approaches. Only crude guidelines exist, which makes feature engineering more of an art than a science. Features that are usable for one data set often are not usable for other data sets (for example the next image data set only contains land animals). The difficulty of feature engineering and the effort involved is the main reason to seek algorithms that can learn features; that is, algorithms that automatically engineer features.</p>
+<p>While many tasks can be automated by Feature Learning (like object and speech recognition), feature engineering remains <a href="http://blog.kaggle.com/2014/08/01/learning-from-the-best/" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">the single most effective technique to do well in difficult tasks</a> (like most tasks in Kaggle machine learning competitions).</p>
+<h3><a id="feature-learning"></a>Feature Learning</h3>
+<p>Feature learning algorithms find the common patterns that are important to distinguish between classes and extract them automatically to be used in a classification or regression process. Feature learning can be thought of as <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#feature-engineering">Feature Engineering</a> done automatically by algorithms. In deep learning, convolutional layers are exceptionally good at finding good features in images to the next layer to form a hierarchy of nonlinear features that grow in complexity (e.g. blobs, edges -&gt; noses, eyes, cheeks -&gt; faces). The final layer(s) use all these generated features for classification or regression (the last layer in a convolutional net is, essentially,&nbsp;multinomial <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#logistic-regression">logistic regression</a>).</p>
+<p><img class="size-full wp-image-6067" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/hierarchical_features.png" alt="Hierarchical Features" width="754" height="208" srcset="https://devblogs.nvidia.com/wp-content/uploads/2015/11/hierarchical_features.png 754w, https://devblogs.nvidia.com/wp-content/uploads/2015/11/hierarchical_features-300x83.png 300w, https://devblogs.nvidia.com/wp-content/uploads/2015/11/hierarchical_features-624x172.png 624w, https://devblogs.nvidia.com/wp-content/uploads/2015/11/hierarchical_features-500x138.png 500w, https://devblogs.nvidia.com/wp-content/uploads/2015/11/hierarchical_features-160x44.png 160w" sizes="(max-width: 754px) 100vw, 754px"></p>
+<p>Figure 1: Learned hierarchical features from a deep learning algorithm. Each feature can be thought of as a filter, which filters the input image for that feature (a nose). If the feature is found, the responsible unit or units generate large activations, which can be picked up by the later classifier stages as a good indicator that the class is present. Image by Honglak Lee and colleagues (2011) as published in “Unsupervised Learning of Hierarchical Representations with Convolutional Deep Belief Networks”.</p>
+<p>Figure 1 shows features generated by a deep learning algorithm that generates easily interpretable features. This is rather unusual. Features are normally difficult to interpret, especially in deep networks like <a href="https://devblogs.nvidia.com/parallelforall/deep-learning-nutshell-sequence-learning#recurrent-neural-networks" data-wpel-link="internal">recurrent neural networks</a> and <a href="https://devblogs.nvidia.com/parallelforall/deep-learning-nutshell-sequence-learning#LSTM" data-wpel-link="internal">LSTMs</a> or very deep convolutional networks.</p>
+<h3><a id="deep-learning"></a>Deep Learning</h3>
+<p>In hierarchical <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#feature-learning">Feature Learning</a>, we extract multiple layers of non-linear features and pass them to a classifier that combines all the features to make predictions. We are interested in stacking such very deep hierarchies of non-linear features because we cannot learn complex features from a few layers. It can be shown mathematically that for images the best features for a single layer are edges and blobs because they contain the most information that we can extract from a single non-linear transformation. To generate features that contain more information we cannot operate on the inputs directly, but we need to transform our first features (edges and blobs) again to get more complex features that contain more information to distinguish between classes.</p>
+<p>It has been shown that the human brain does exactly the same thing: The first hierarchy of neurons that receives information in the visual cortex are sensitive to specific edges and blobs&nbsp;while brain regions further down the visual pipeline are sensitive to more complex structures such as faces.</p>
+<p>While hierarchical feature learning was used before the field deep learning existed, these architectures suffered from major problems such as the vanishing <a href="https://devblogs.nvidia.com/parallelforall/deep-learning-nutshell-history-training#stochastic-gradient-descent" data-wpel-link="internal">gradient</a> problem where the gradients became too small to provide a learning signal for very deep layers, thus making these architectures perform poorly when compared to shallow learning algorithms (such as support vector machines).</p>
+<p>The term deep learning originated from new methods and strategies designed to generate these deep hierarchies of non-linear features by overcoming the problems with vanishing gradients so that we can train architectures with dozens of layers of non-linear hierarchical features. In the early 2010s, it was shown that combining GPUs with <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#activation-function">activation functions</a> that offered better gradient flow was sufficient to train deep architectures without major difficulties. From here the interest in deep learning grew steadily.</p>
+<p>Deep learning is not associated just with learning deep non-linear hierarchical features, but also with learning to detect very long non-linear time dependencies in sequential data. While most other algorithms that work on sequential data only have a memory of the last 10 time steps, <a href="https://devblogs.nvidia.com/parallelforall/deep-learning-nutshell-sequence-learning#LSTM" data-wpel-link="internal">long short-term memory (LSTM)</a> <a href="https://devblogs.nvidia.com/parallelforall/deep-learning-nutshell-sequence-learning#recurrent-neural-networks" data-wpel-link="internal">recurrent neural networks</a> (invented by Sepp Hochreiter and Jürgen Schmidhuber in 1997) allow the network to pick up on activity hundreds of time-steps in the past to make accurate predictions. While LSTM networks have been mostly ignored in the past 10 years, their usage has grown rapidly since 2013 and together with convolutional nets they form one of two major success stories of deep learning.</p>
+<h2>Fundamental Concepts</h2>
+<h3><a id="logistic-regression"></a>Logistic Regression</h3>
+<p>Regression analysis estimates the relationship between statistical input variables in order to predict an outcome variable. Logistic regression is a regression model that uses input variables to predict a categorical outcome variable that can take on one of a limited set of class values, for example “cancer” / “no cancer”, or an image category such as “bird” / “car” / “dog” / “cat” / “horse”.</p>
+<p>Logistic regression applies the logistic sigmoid function (see Figure 2) to weighted input values to generate a prediction of which of two classes the input data belongs to (or in case of multinomial logistic regression, which of multiple classes).</p>
+<figure id="attachment_6161" aria-labelledby="figcaption_attachment_6161" class="wp-caption alignright" style="width: 300px"><img class="size-medium wp-image-6161" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/sigmoid1-300x200.png" alt="Figure 2: The logistic sigmoid function $latex f(x) = \frac{1}{1+e^{-x}}$. Image Source" width="300" height="200" srcset="https://devblogs.nvidia.com/wp-content/uploads/2015/11/sigmoid1-300x200.png 300w, https://devblogs.nvidia.com/wp-content/uploads/2015/11/sigmoid1-450x300.png 450w, https://devblogs.nvidia.com/wp-content/uploads/2015/11/sigmoid1-135x90.png 135w, https://devblogs.nvidia.com/wp-content/uploads/2015/11/sigmoid1.png 510w" sizes="(max-width: 300px) 100vw, 300px"><figcaption id="figcaption_attachment_6161" class="wp-caption-text">Figure 2: The logistic sigmoid function <img src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/latex.php" alt="f(x) = \frac{1}{1+e^{-x}}" title="f(x) = \frac{1}{1+e^{-x}}" class="latex">. <a href="https://en.wikipedia.org/wiki/File:Logistic-curve.svg" target="_blank" rel="noopener nofollow external noreferrer" data-wpel-link="external">Image Source</a></figcaption></figure>
+<p>Logistic regression is similar to a non-linear <a href="https://devblogs.nvidia.com/parallelforall/deep-learning-nutshell-history-training#perceptron" data-wpel-link="internal">perceptron</a> or a neural network without hidden layers. The main difference from other basic models is that logistic regression is easy to interpret and reliable if some statistical properties for the input variables hold. If these statistical properties hold one can produce a very reliable model with very little input data. This makes logistic regression valuable for areas where data are scarce, like the medical and social sciences where logistic regression is used to analyze and interpret results from experiments. Because it is simple and fast it is also used for very large data sets.</p>
+<p>In deep learning, the final layer of a neural network used for classification can often be interpreted as a logistic regression. In this context, one can see a deep learning algorithm as multiple feature learning stages, which then pass their features into a logistic regression that classifies an input.</p>
+<h3><a id="artificial-neural-network"></a>Artificial Neural Network</h3>
+<p>An artificial neural network (1) takes some input data, and (2) transforms this input data by calculating a weighted sum over the inputs and (3) applies a non-linear function to this transformation to calculate an intermediate state. The three steps above constitute what is known as a <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#layer">layer</a>, and the transformative function is often referred to as a <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#unit">unit</a>. The intermediate states—often termed features—are used as the input into another layer.</p>
+<p>Through repetition of these steps, the artificial neural network learns multiple layers of non-linear features, which it then combines in a final layer to create a prediction.</p>
+<p>The neural network learns by generating an error signal that measures the difference between the predictions of the network and the desired values and then using this error signal to change the weights (or parameters) so that predictions get more accurate.</p>
+<h3><a id="unit"></a>Unit</h3>
+<p>A unit often refers to the <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#activation-function">activation function</a> in a layer by which the inputs are transformed via a nonlinear activation function (for example by the <a href="https://en.wikipedia.org/wiki/Logistic_function" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">logistic sigmoid function</a>). Usually, a unit has several incoming connections and several outgoing connections. However, units can also be more complex, like <a href="https://devblogs.nvidia.com/parallelforall/deep-learning-nutshell-sequence-learning#LSTM" data-wpel-link="internal">long short-term memory (LSTM)</a> units, which have multiple activation functions with a distinct layout of connections to the nonlinear activation functions, or maxout units, which compute the final output over an array of nonlinearly transformed input values. <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#pooling">Pooling</a>, <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#convolution">convolution</a>, and other input transforming functions are usually not referred to as units.</p>
+<h3><a id="artificial-neuron"></a>Artificial Neuron</h3>
+<p>The term artificial neuron—or most often just neuron—is an equivalent term to <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#unit">unit</a>, but implies a close connection to neurobiology and the human brain while deep learning has very little to do with the brain (for example, it is now thought that biological neurons are more similar to entire multilayer perceptrons rather than a single unit in a neural network). The term neuron was encouraged after the last <a href="https://devblogs.nvidia.com/parallelforall/deep-learning-nutshell-history-training#ai-winter" data-wpel-link="internal">AI winter</a> to differentiate the more successful neural network from the failing and abandoned perceptron. However, since the wild successes of deep learning after 2012, the media often picked up on the term “neuron” and sought to explain deep learning as mimicry of the human brain, which is very misleading and potentially dangerous for the perception of the field of deep learning. Now the term neuron is discouraged and the more descriptive term unit should be used instead.</p>
+<h3><a id="activation-function"></a>Activation Function</h3>
+<p>An activation function takes in weighted data (matrix multiplication between input data and weights) and outputs a non-linear transformation of the data. For example, <img src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/latex(1).php" alt="output = max(0,weighted_data)" title="output = max(0,weighted_data)" class="latex"> is the <a href="https://devblogs.nvidia.com/parallelforall/deep-learning-nutshell-history-training#rectified-linear-function" data-wpel-link="internal">rectified linear activation function</a> (essentially set all negative values to zero). The difference between units and activation functions is that units can be more complex, that is, a unit can have multiple activation functions (for example <a href="https://devblogs.nvidia.com/parallelforall/deep-learning-nutshell-sequence-learning#LSTM" data-wpel-link="internal">LSTM</a> units) or a slightly more complex structure (for example maxout units).</p>
+<p>The difference between linear and non-linear activation functions can be shown with the relationship of some weighted values: Imagine the four points <em>A1</em>, <em>A2</em>, <em>B1</em> and <em>B2</em>. The pairs <em>A1</em> / <em>A2</em>, and <em>B1</em> / <em>B2</em> lie close to each other, but <em>A1</em> is distant from <em>B1</em> and <em>B2</em>, and vice versa; the same for <em>A2</em>.</p>
+<p>With a linear transformation the relationship between pairs might change. For example <em>A1</em> and <em>A2</em> might be far apart, but this implies that <em>B1</em> and <em>B2</em> are also far apart. The distance between the pairs might shrink, but if it does, then both <em>B1</em> and <em>B2</em> will be close to <em>A1</em> and <em>A2</em> at the same time. We can apply many linear transformations, but the relationship between <em>A1</em> / <em>A2</em> and <em>B1</em> / <em>B2</em> will always be similar.</p>
+<p>In contrast, with a non-linear activation function we can increase the distance between <em>A1</em> and <em>A2</em> while we <em>decrease</em> the distance between <em>B1</em> and <em>B2</em>. We can make <em>B1</em> close to <em>A1</em>, but <em>B2</em> distant from <em>A1</em>. By applying non-linear functions, we create new relationships between the points. With every new non-linear transformation we can increase the complexity of the relationships. In deep learning, using non-linear activation functions creates increasingly complex features with every layer.</p>
+<p>In contrast, the features of 1000 layers of pure linear transformations can be reproduced by a single layer (because a chain of matrix multiplication can always be represented by a single matrix multiplication). This is why non-linear activation functions are so important in deep learning.</p>
+<h3><a id="layer"></a>Layer</h3>
+<p>A layer is the highest-level building block in deep learning. A layer is a container that usually receives weighted input, transforms it with a set of mostly non-linear functions and then passes these values as output to the next layer. A layer is usually uniform, that is it only contains one type of activation function, <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#pooling">pooling</a>, <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#convolution">convolution</a> etc. so that it can be easily compared to other parts of the network. The first and last layers in a network are called input and output layers, respectively, and all layers in between are called hidden layers.</p>
+<h2>Convolutional Deep Learning</h2>
+<h3><a id="convolution"></a>Convolution</h3>
+<p>Convolution is a mathematical operation which describes a rule of how to mix two functions or pieces of information: (1) The feature map (or input data) and (2) the convolution kernel mix together to form (3) a transformed feature map. Convolution is often interpreted as a filter, where the kernel filters the feature map for information of a certain kind (for example one kernel might filter for edges and discard other information).</p>
+<figure id="attachment_6069" aria-labelledby="figcaption_attachment_6069" class="wp-caption alignright" style="width: 388px"><img class="size-full wp-image-6069" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/convolution.png" alt="Figure 2: Convolution of an image with an edge detector convolution kernel." width="388" height="150" srcset="https://devblogs.nvidia.com/wp-content/uploads/2015/11/convolution.png 388w, https://devblogs.nvidia.com/wp-content/uploads/2015/11/convolution-300x116.png 300w, https://devblogs.nvidia.com/wp-content/uploads/2015/11/convolution-160x62.png 160w" sizes="(max-width: 388px) 100vw, 388px"><figcaption id="figcaption_attachment_6069" class="wp-caption-text">Figure 2: Convolution of an image with an edge detector convolution kernel. Sources: <a href="https://en.wikipedia.org/wiki/File:Vd-Orig.png" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">1</a> <a href="https://en.wikipedia.org/wiki/File:Vd-Edge3.png" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">2</a>.</figcaption></figure>
+<p>Convolution is important in physics and mathematics as it defines a bridge between the spatial and time domains (pixel with intensity 147 at position (0,30)) and the frequency domain (amplitude of 0.3, at 30Hz, with 60-degree phase) through the convolution theorem. This bridge is defined by the use of Fourier transforms: When you use a Fourier transform on both the kernel and the feature map, then the convolution operation is simplified significantly (integration becomes mere multiplication). Some of the fastest GPU implementations of convolutions (for example some implementations in the <a href="https://devblogs.nvidia.com/parallelforall/accelerate-machine-learning-cudnn-deep-neural-network-library/" data-wpel-link="internal">NVIDIA cuDNN</a> library) currently make use of Fourier transforms.</p>
+<figure id="attachment_6070" aria-labelledby="figcaption_attachment_6070" class="wp-caption aligncenter" style="width: 526px"><img class="size-full wp-image-6070" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/Convolution_schematic.gif" alt="Convolution sliding window" width="526" height="384"><figcaption id="figcaption_attachment_6070" class="wp-caption-text">Figure 3: Calculating convolution by sliding image patches over the entire image. One image patch (yellow) of the original image (green) is multiplied by the kernel (red numbers in the yellow patch), and its sum is written to one feature map pixel (red cell in convolved feature). Image source: <a href="http://deeplearning.stanford.edu/wiki/index.php/Feature_extraction_using_convolution" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">1</a>.</figcaption></figure>
+<p>Convolution can describe the diffusion of information, for example, the diffusion that takes place if you put milk into your coffee and do not stir can be accurately modeled by a convolution operation (pixels diffuse towards contours in an image). In quantum mechanics, it describes the probability of a quantum particle being in a certain place when you measure the particle’s position (average probability for a pixel’s position is highest at contours). In probability theory, it describes cross-correlation, which is the degree of similarity for two sequences that overlap (similarity high if the pixels of a feature (e.g. nose) overlap in an image (e.g. face)). In statistics, it describes a weighted moving average over a normalized sequence of input (large weights for contours, small weights for everything else). Many other interpretations exist.</p>
+<p>While it is unknown which interpretation of convolution is correct for deep learning, the cross-correlation interpretation is currently the most useful: convolutional filters can be interpreted as feature detectors, that is, the input (feature map) is filtered for a certain feature (the kernel) and the output is large if the feature is detected in the image. This is exactly how you interpret cross-correlation for an image.</p>
+<figure id="attachment_6071" aria-labelledby="figcaption_attachment_6071" class="wp-caption aligncenter" style="width: 611px"><img class="size-full wp-image-6071" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/crosscorrelation_Example.png" alt="Cross-correlation Example" width="611" height="232" srcset="https://devblogs.nvidia.com/wp-content/uploads/2015/11/crosscorrelation_Example.png 611w, https://devblogs.nvidia.com/wp-content/uploads/2015/11/crosscorrelation_Example-300x114.png 300w, https://devblogs.nvidia.com/wp-content/uploads/2015/11/crosscorrelation_Example-500x190.png 500w, https://devblogs.nvidia.com/wp-content/uploads/2015/11/crosscorrelation_Example-160x61.png 160w" sizes="(max-width: 611px) 100vw, 611px"><figcaption id="figcaption_attachment_6071" class="wp-caption-text">Figure 4: Cross-correlation for an image. Convolution can be transformed to cross-correlation by reversing the kernel (upside-down image). The kernel can then be interpreted as a feature detector where a detected feature results in large outputs (white) and small outputs if no feature is present (black). Images are taken from <a href="http://www.dspguide.com/swsmith.htm" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">Steven Smith</a>’s excellent <a href="http://www.dspguide.com/pdfbook.htm" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">free online book about digital signal processing</a>.</figcaption></figure>
+<p>Additional material: <a href="http://timdettmers.com/2015/03/26/convolution-deep-learning/" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">Understanding Convolution in Deep Learning</a></p>
+<h3><a id="pooling"></a>Pooling / Subsampling</h3>
+<p>Pooling is a procedure that takes input over a certain area and reduces that to a single value (subsampling). In <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#convolutional-neural-networks">convolutional neural networks</a>, this concentration of information has the useful property that outgoing connections usually receive similar information (the information is “funneled” into the right place for the input feature map of the next convolutional layer). This provides basic invariance to rotations and translations. For example, if the face on an image patch is not in the center of the image but slightly translated, it should still work fine&nbsp;because the information is funneled into the right place by the pooling operation so that the convolutional filters can detect the face.</p>
+<p>The larger the size of the pooling area, the more information is condensed, which leads to slim networks that fit more easily into GPU memory. However, if the pooling area is too large, too much information is thrown away and predictive performance decreases.</p>
+<p>Additional material: <a href="https://www.youtube.com/watch?v=I-JKxcpbRT4" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">Neural networks [9.5]: Computer vision – pooling and subsampling</a></p>
+<h3><a id="convolutional-neural-network"></a>Convolutional Neural Network (CNN)</h3>
+<p>A convolutional neural network, or preferably convolutional network or convolutional net (the term neural is misleading; see also <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#artificial-neuron">artificial neuron</a>), uses convolutional <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#layer">layers</a> (see <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#convolution">convolution</a>) that filter inputs for useful information. These convolutional layers have parameters that are learned&nbsp;so that these filters are adjusted automatically to extract the most useful information for the task at hand (see Feature Learning). For example, in a general object recognition task it might be most useful to filter information about the shape of an object (objects usually have very different shapes) while for a bird recognition task it might be more suitable to extract information about the color of the bird (most birds have a similar shape, but different colors; here color is more useful to distinguish between birds). Convolutional networks adjust automatically to find the best feature for these tasks.</p>
+<p>Usually, multiple convolutional layers are used that filter images for more and more abstract information after each layer (see hierarchical features).</p>
+<p>Convolutional networks usually also use pooling layers (see <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#pooling">pooling</a>) for limited translation and rotation invariance (detect the object even if it appears at some unusual place). Pooling also reduces the memory consumption and thus allows for the usage of more convolutional layers.</p>
+<p>More recent convolutional networks use inception modules (see <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#inception">inception</a>) which use 1×1 convolutional kernels to reduce the memory consumption further while speeding up the computation (and thus training).</p>
+<figure id="attachment_6072" aria-labelledby="figcaption_attachment_6072" class="wp-caption aligncenter" style="width: 560px"><img class="size-full wp-image-6072" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/fig1.png" alt="Convolutional Neural Network" width="560" height="253" srcset="https://devblogs.nvidia.com/wp-content/uploads/2015/11/fig1.png 560w, https://devblogs.nvidia.com/wp-content/uploads/2015/11/fig1-300x136.png 300w, https://devblogs.nvidia.com/wp-content/uploads/2015/11/fig1-500x226.png 500w, https://devblogs.nvidia.com/wp-content/uploads/2015/11/fig1-160x72.png 160w" sizes="(max-width: 560px) 100vw, 560px"><figcaption id="figcaption_attachment_6072" class="wp-caption-text">Figure 5: An image of a traffic sign is filtered by 4 5×5 convolutional kernels which create 4 feature maps, these feature maps are subsampled by max pooling. The next layer applies 10 5×5 convolutional kernels to these subsampled images and again we pool the feature maps. The final layer is a fully connected layer where all generated features are combined and used in the classifier (essentially logistic regression). Image by <a href="http://parse.ele.tue.nl/mpeemen" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">Maurice Peemen</a>.</figcaption></figure>
+<p>Additional material: <a href="https://www.youtube.com/playlist?list=PLnnr1O8OWc6YLZzLoHzX2q5c2wWMOIUZy" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">Coursera: Neural Networks for Machine Learning: Object Recognition with Neural Nets</a>.</p>
+<h3><a id="inception"></a>Inception</h3>
+<p>Inception modules in <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#convolutional-neural-network">convolutional networks</a> were designed to allow for deeper and larger <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#convolution">convolution</a>al <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#layer">layers</a> while at the same time allowing for more efficient computation. This is done by using 1×1 convolutions with small feature map size, for example, 192 28×28 sized feature maps can be reduced to 64 28×28 feature maps through 64 1×1 convolutions. Because of the reduced size, these 1×1 convolutions can be followed up with larger convolutions of size 3×3 and 5×5. In addition to 1×1 convolution, max pooling may also be used to reduce dimensionality.</p>
+<p>In the output of an inception module, all the large convolutions are concatenated into a big feature map which is then fed into the next layer (or inception module).</p>
+<p>Additional material: <a href="http://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Szegedy_Going_Deeper_With_2015_CVPR_paper.pdf" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">Going Deeper with Convolutions</a></p>
+<h2>Conclusion to Part 1</h2>
+<p>This concludes part one of this crash course on deep learning. Please check back soon for the next two parts of the series. In <a href="https://devblogs.nvidia.com/parallelforall/deep-learning-nutshell-history-training/" data-wpel-link="internal">part 2</a>, I’ll provide a brief historical overview followed by an introduction to training deep neural networks.</p>
+<p>Meanwhile, you might be interested in learning about <a href="https://devblogs.nvidia.com/parallelforall/cudnn-v2-higher-performance-deep-learning-gpus/" data-wpel-link="internal">cuDNN</a>, <a href="https://devblogs.nvidia.com/parallelforall/easy-multi-gpu-deep-learning-digits-2/" data-wpel-link="internal">DIGITS</a>, <a href="https://devblogs.nvidia.com/parallelforall/deep-learning-computer-vision-caffe-cudnn/" data-wpel-link="internal">Computer Vision with Caffe</a>, <a href="https://devblogs.nvidia.com/parallelforall/understanding-natural-language-deep-neural-networks-using-torch/" data-wpel-link="internal">Natural Language Processing with Torch</a>, <a href="https://devblogs.nvidia.com/parallelforall/introduction-neural-machine-translation-with-gpus/" data-wpel-link="internal">Neural Machine Translation</a>, the <a href="https://devblogs.nvidia.com/parallelforall/mocha-jl-deep-learning-julia/" data-wpel-link="internal">Mocha.jl</a> deep learning framework for Julia, or other <a href="https://devblogs.nvidia.com/parallelforall/tag/deep-learning" data-wpel-link="internal">Parallel Forall posts on deep learning</a>.</p>
+<div style="margin-top: 0px; margin-bottom: 0px;" class="sharethis-inline-share-buttons"></div>
+                    <div class="entry-content-comments-link">
+                        <i class="fa fa-comment" aria-hidden="true"></i>
+                        <a href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#disqus_thread" data-wpel-link="internal" data-disqus-identifier="6063 https://devblogs.nvidia.com/parallelforall/?p=6063">2 Comments</a>
+                    </div>
+
+                    <div class="entry-content-author">
+                        <div class="caption">About the Authors</div>
+                      
+        <div class="media author-info">
+            <div class="author-media-left media-left">
+              <img alt="" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/a2403083d31517f7ad848c67a51cf2d2.png" srcset="https://secure.gravatar.com/avatar/a2403083d31517f7ad848c67a51cf2d2?s=232&amp;d=retro&amp;r=g 2x" class="avatar img-responsive avatar-116 photo grav-hashed grav-hijack" height="116" width="116" id="grav-a2403083d31517f7ad848c67a51cf2d2-0">            </div>
+            <div class="author-media-body media-body">
+                <b>About Tim Dettmers</b>
+                <br>
+
+              Tim Dettmers is a masters student in informatics at the University of Lugano where he works on deep learning research. Before that he studied applied mathematics and worked for three years as a software engineer in the automation industry. He runs a <a href="http://timdettmers.com/" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">blog about deep learning</a> and takes part in Kaggle data science competitions where he has reached a world rank of 63.                                <br>
+                  <a class="author-twitter-link" href="https://twitter.com/intent/user?screen_name=Tim_Dettmers" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">Follow
+                      @Tim_Dettmers                      on Twitter</a>
+                                              <div id="author-link">
+                      <a href="https://devblogs.nvidia.com/author/tdettmers/" rel="author" data-wpel-link="internal">
+                        View all posts by Tim Dettmers <i class="fa fa-angle-double-right" aria-hidden="true"></i>                      </a>
+                  </div>
+                          </div>
+
+                  </div>
+
+                        </div>
+                </div>
+            </article>
+        
+    </div>
+</div>
+
+<div class="entry-content-share" id="entry-content-share">
+    <div class="container">
+        <div class="row">
+            <div class="entry-content-share-count">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+              <div class="sharethis-inline-share-buttons"></div>            </div>
+        </div>
+    </div>
+</div>
+
+<div class="entry-content-related">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 related-posts-title">Related posts</div>
+        </div>
+
+      <div class="row"><div class="col-md-6 col-sm-6 col-xs-12 col-md-6-pd"><div class="media related-posts-content">
+              <div class="media-body">
+                <div class="wrap-home-posts">
+                  <div class="home-posts-title">
+                    <a href="https://devblogs.nvidia.com/deep-learning-nutshell-history-training/" data-wpel-link="internal">Deep Learning in a Nutshell: History and Training</a>
+                  </div>
+                  <div class="home-posts-author">By <a href="https://devblogs.nvidia.com/author/tdettmers/" title="Posts by Tim Dettmers" class="author url fn" rel="author" data-wpel-link="internal">Tim Dettmers</a> | <a href="https://devblogs.nvidia.com/deep-learning-nutshell-history-training/" title="1:27 pm" rel="bookmark" data-wpel-link="internal"><time class="entry-date" datetime="1:27 pm" pubdate="">December 16, 2015 </time></a>      </div>
+             </div>
+           </div>
+           <div class="media-right"><a href="https://devblogs.nvidia.com/deep-learning-nutshell-history-training/" class="image-post-link" data-wpel-link="internal"><img height="110" width="111" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/CUDA_Cube_1K-111x110.jpg" alt="CUDA_Cube_1K"></a></div>
+         </div></div><div class="col-md-6 col-sm-6 col-xs-12 col-md-6-pd"><div class="media related-posts-content">
+              <div class="media-body">
+                <div class="wrap-home-posts">
+                  <div class="home-posts-title">
+                    <a href="https://devblogs.nvidia.com/deep-learning-nutshell-sequence-learning/" data-wpel-link="internal">Deep Learning in a Nutshell: Sequence Learning</a>
+                  </div>
+                  <div class="home-posts-author">By <a href="https://devblogs.nvidia.com/author/tdettmers/" title="Posts by Tim Dettmers" class="author url fn" rel="author" data-wpel-link="internal">Tim Dettmers</a> | <a href="https://devblogs.nvidia.com/deep-learning-nutshell-sequence-learning/" title="10:26 pm" rel="bookmark" data-wpel-link="internal"><time class="entry-date" datetime="10:26 pm" pubdate="">March 7, 2016 </time></a>      </div>
+             </div>
+           </div>
+           <div class="media-right"><a href="https://devblogs.nvidia.com/deep-learning-nutshell-sequence-learning/" class="image-post-link" data-wpel-link="internal"><img height="110" width="110" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/cuda_ai_cube-110x110.jpg" alt="CUDA AI Cube"></a></div>
+         </div></div></div><div class="row"><div class="col-md-6 col-sm-6 col-xs-12 col-md-6-pd"><div class="media related-posts-content">
+              <div class="media-body">
+                <div class="wrap-home-posts">
+                  <div class="home-posts-title">
+                    <a href="https://devblogs.nvidia.com/deep-learning-computer-vision-caffe-cudnn/" data-wpel-link="internal">Deep Learning for Computer Vision with Caffe and cuDNN</a>
+                  </div>
+                  <div class="home-posts-author">By <a href="https://devblogs.nvidia.com/author/eshelhammer/" title="Posts by Evan Shelhamer" class="author url fn" rel="author" data-wpel-link="internal">Evan Shelhamer</a> | <a href="https://devblogs.nvidia.com/deep-learning-computer-vision-caffe-cudnn/" title="7:50 pm" rel="bookmark" data-wpel-link="internal"><time class="entry-date" datetime="7:50 pm" pubdate="">October 15, 2014 </time></a>      </div>
+             </div>
+           </div>
+           <div class="media-right"><a href="https://devblogs.nvidia.com/deep-learning-computer-vision-caffe-cudnn/" class="image-post-link" data-wpel-link="internal"><img height="110" width="171" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/cuDNN_logo_black_on_white_179x115.png" alt="cuDNN_logo_black_on_white_179x115"></a></div>
+         </div></div><div class="col-md-6 col-sm-6 col-xs-12 col-md-6-pd"><div class="media related-posts-content">
+              <div class="media-body">
+                <div class="wrap-home-posts">
+                  <div class="home-posts-title">
+                    <a href="https://devblogs.nvidia.com/introduction-neural-machine-translation-gpus-part-3/" data-wpel-link="internal">Introduction to Neural Machine Translation with GPUs (part 3)</a>
+                  </div>
+                  <div class="home-posts-author">By <a href="https://devblogs.nvidia.com/author/kcho/" title="Posts by Kyunghyun Cho" class="author url fn" rel="author" data-wpel-link="internal">Kyunghyun Cho</a> | <a href="https://devblogs.nvidia.com/introduction-neural-machine-translation-gpus-part-3/" title="9:34 pm" rel="bookmark" data-wpel-link="internal"><time class="entry-date" datetime="9:34 pm" pubdate="">July 26, 2015 </time></a>      </div>
+             </div>
+           </div>
+           <div class="media-right"><a href="https://devblogs.nvidia.com/introduction-neural-machine-translation-gpus-part-3/" class="image-post-link" data-wpel-link="internal"><img height="110" width="117" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/Figure8_image_caption.png" alt="Figure 8. Image Caption Generation with Attention Mechanism."></a></div>
+         </div></div></div>    </div>
+</div>
+
+<div class="entry-content-comments" id="entry-content-comments">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 related-posts-comments">Comments</div>
+        </div>
+        <div class="row" id="pf-disqus-thread">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            
+<div id="disqus_thread"><iframe id="dsq-app5165" name="dsq-app5165" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/saved_resource.html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 459px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></div>
+          </div>
+        </div>
+    </div>
+</div>
+
+
+	<!--wp code prettify-->
+	<script type="text/javascript">
+	function $(id) {return !id ? null : document.getElementById(id);}
+
+	loadPrettifyCss = function () {
+		if(!$('prettify_css')) {
+			css = document.createElement('link');
+			css.id = 'prettify_css';
+			css.type = 'text/css';
+			css.rel = 'stylesheet';
+			css.href = 'https://devblogs.nvidia.com/wp-content/plugins/wp-code-prettify/css/prettify.css';
+			var headNode = document.getElementsByTagName("head")[0];
+			headNode.appendChild(css);
+		} else {
+			$('prettify_css').href = 'https://devblogs.nvidia.com/wp-content/plugins/wp-code-prettify/css/prettify.css';
+		}
+
+		if(!$('prettify_custom')) {
+			css = document.createElement('style');
+			css.id = 'prettify_custom';
+			css.type = 'text/css';
+			css.rel = 'stylesheet';
+			css.innerHTML = 'pre.prettyprint { max-height: 500px; white-space: pre; word-wrap: normal; overflow: auto; background-color: #f8f8f8;border-radius: 3px; } pre.prettyprint[title]:before { float: right; border: 1px solid #ccc; border-radius: 3px; background: #ddd; padding: 10px; content: attr(title);  font: 13px "Trebuchet MS", "Helvetica Neue", Helvetica, Arial, sans-serif; }';
+			var headNode = document.getElementsByTagName("head")[0];
+			headNode.appendChild(css);
+		} else {
+			$('prettify_css').innerHTML = 'pre.prettyprint { max-height: 500px; white-space: pre; word-wrap: normal; overflow: auto; background-color: #f8f8f8;border-radius: 3px; } pre.prettyprint[title]:before { float: right; border: 1px solid #ccc; border-radius: 3px; background: #ddd; padding: 10px; content: attr(title);  font: 13px "Trebuchet MS", "Helvetica Neue", Helvetica, Arial, sans-serif; }';
+		}
+	}
+	</script>
+	<script type="text/javascript">
+		loadPrettifyCss();
+	</script>
+
+	<script type="text/javascript" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/prettify.js.download"></script>
+	<script type="text/javascript">
+		function wpCodePrettifyOnLoad(func){
+			var wpCodePrettifyOldOnLoad = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func
+			} else {
+				window.onload = function () {
+					wpCodePrettifyOldOnLoad();
+					func()
+				}
+			}
+		}
+
+		wpCodePrettifyOnLoad(function(){prettyPrint();});
+	</script>
+	<!--//wp code prettify-->
+	<script type="text/javascript" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/lang-matlab.js.download"></script>
+</div>
+
+</div>
+
+</div>
+<footer class="cuda-footer">
+    <div class="footer-boilerplate">
+        <div class="container">
+            <div class="boilerplate">
+                NVIDIA websites use cookies to deliver and improve the website experience. See our <a href="https://www.nvidia.com/en-us/about-nvidia/privacy-policy/" target="_blank" style="text-decoration: underline;" data-wpel-link="external" rel="nofollow external noopener noreferrer">cookie policy</a> for further details on how we use cookies and how to change your cookie settings.
+            </div><!-- /.boilerplate -->
+        </div><!-- /.container -->
+    </div>
+    <div class="footer-boilerplate">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                    <div class="logo-footer"></div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <div class="boilerplate clearfix">
+                        <div class="copyright">
+                          Copyright © 2020 NVIDIA Corporation                        </div>
+                        <a class="legal-info-link" href="http://www.nvidia.com/object/legal_info.html" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">Legal Information</a>
+                        <a class="privacy-link" href="http://www.nvidia.com/object/privacy_policy.html" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div><iframe src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/portal-v2.html" id="st_gdpr_iframe" title="GDPR Consent Management" style="width: 0px; height: 0px; position: absolute; left: -5000px;"></iframe>
+
+<script>_satellite.pageBottom();</script> 	<div id="sidr-left" class="sidebar-container sidr left" role="complementary">
+					<div class="sidr-toggle"><a class="sidr-left-link" href="https://devblogs.nvidia.com/deep-learning-nutshell-core-concepts/#sidr-left">Close</a></div>
+					<div class="widget-area"><aside id="nav_menu-4" class="widget widget_nav_menu"><h3 class="widget-title">Parallel Forall</h3><div class="menu-main-menu-container"><ul id="menu-main-menu" class="menu"><li id="menu-item-15494" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-15494"><a href="https://devblogs.nvidia.com/" data-wpel-link="internal">Home</a></li>
+</ul></div></aside><aside id="search-3" class="widget widget_search"><form role="search" method="get" class="searchform" id="searchform" action="https://devblogs.nvidia.com/">
+  <div><label class="screen-reader-text" for="s">Search for:</label>
+    <input type="text" value="" placeholder="Search..." name="s" id="s">
+    <span class="fa fa-search visible-xs visible-sm"></span>
+    <input type="submit" id="searchsubmit" value="Search" disabled="">
+  </div>
+</form></aside><aside id="text-2" class="widget widget_text"><h3 class="widget-title">Accelerated Computing</h3>			<div class="textwidget"><ul class="nav navbar-nav navbar-margin navbar-right navbar-margin-media login-nav">
+  <li><a href="https://developer.nvidia.com/accelerated-computing" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">Accelerated Computing</a></li>
+  <li><a href="https://developer.nvidia.com/accelerated-computing-toolkit" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">Downloads</a></li>
+  <li><a href="https://developer.nvidia.com/accelerated-computing-training" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">Training</a></li>
+  <li><a href="https://developer.nvidia.com/tools-ecosystem" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">Ecosystem</a></li>
+<li><a href="https://forums.developer.nvidia.com/" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">Forums</a></li>
+    <li class="cuda-program-link">
+        <a href="https://developer.nvidia.com/accelerated-computing-developer" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer"><i class="fa fa-lock fa-fw"></i> Register Now</a>
+    </li>
+    <li>
+        <a href="https://developer.nvidia.com/user" data-wpel-link="external" target="_blank" rel="nofollow external noopener noreferrer">Login</a>
+    </li>
+</ul></div>
+		</aside> 		</div><!-- .widget-area -->
+				</div><!-- #sidr-left -->	<div style="display:none">
+	<div class="grofile-hash-map-a2403083d31517f7ad848c67a51cf2d2">
+	</div>
+	</div>
+<script type="text/javascript">
+/* <![CDATA[ */
+var countVars = {"disqusShortname":"nvparallelforall"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/comment_count.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var embedVars = {"disqusConfig":{"integration":"wordpress 3.0.17"},"disqusIdentifier":"6063 https:\/\/devblogs.nvidia.com\/parallelforall\/?p=6063","disqusShortname":"nvparallelforall","disqusTitle":"Deep Learning in a Nutshell: Core Concepts","disqusUrl":"https:\/\/devblogs.nvidia.com\/deep-learning-nutshell-core-concepts\/","postId":"6063"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/comment_embed.js.download"></script>
+<script type="text/javascript" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/frontend.min.js.download"></script>
+<script type="text/javascript" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/sidr-init.js.download"></script>
+<script type="text/javascript" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/gprofiles.js.download"></script><div id="mktoStyleLoaded" style="display: none; border-top-color: rgb(18, 52, 86);"></div>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/wpgroho.js.download"></script>
+<script type="text/javascript" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/comment-reply.min.js.download"></script>
+<script type="text/javascript" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/custom-script.js.download"></script>
+<script type="text/javascript" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/ios-orientationchange-fix.js.download"></script>
+<script type="text/javascript" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/isotope.pkgd.min.js.download"></script>
+<script type="text/javascript" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/imagesloaded.pkgd.min.js.download"></script>
+<script type="text/javascript" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/twitter-timeline.min.js.download"></script>
+<script type="text/javascript" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/effect.min.js.download"></script>
+<script type="text/javascript" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/effect-blind.min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var stbUserOptions = {"mode":"css","cssOptions":{"roundedCorners":false,"mbottom":10,"imgHide":"https:\/\/devblogs.nvidia.com\/wp-content\/stb-themes\/stb-metro\/minus.png","imgShow":"https:\/\/devblogs.nvidia.com\/wp-content\/stb-themes\/stb-metro\/plus.png","strHide":"Hide","strShow":"Show"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/wstb.min.js.download"></script>
+<script type="text/javascript" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/wp-embed.min.js.download"></script>
+	<script type="text/javascript">
+		var elm_button_vars = { wrapper: '.all-posts-grid' };
+	</script>
+	<script type="text/javascript" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/e-202021.js.download" async="async" defer="defer"></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:8.4.2',blog:'141438771',post:'6063',tz:'-7',srv:'devblogs.nvidia.com'} ]);
+	_stq.push([ 'clickTrackerInit', '141438771', '6063' ]);
+</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"a63018bcb3","applicationID":"39867691","transactionName":"MgcDbURTD0dSVkcLXwtNIFpCWw5aHEZaDFcJBw==","queueTime":0,"applicationTime":584,"atts":"HkAAGwxJHEk=","errorBeacon":"bam.nr-data.net","agent":""}</script>
+
+<div id="sidr-right" class="sidr right"></div><img src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/g.gif" alt=":)" width="6" height="5" id="wpstats"><iframe scrolling="no" frameborder="0" allowtransparency="true" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/widget_iframe.2a008290075125adde2d7b849b06a0bb.html" title="Twitter settings iframe" style="display: none;"></iframe><div id="st-2" class=" st-sticky-share-buttons st-left st-toggleable st-has-labels st-show-total "><div class="st-total ">
+  <span class="st-label">1.2k</span>
+  <span class="st-shares">
+    Shares
+  </span>
+</div><div class="st-btn st-first" data-network="facebook" style="display: inline-block;">
+  <img alt="facebook sharing button" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/facebook.svg">
+  <span class="st-label">Share</span>
+</div><div class="st-btn" data-network="twitter" style="display: inline-block;">
+  <img alt="twitter sharing button" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/twitter.svg">
+  <span class="st-label">Tweet</span>
+</div><div class="st-btn" data-network="email" style="display: inline-block;">
+  <img alt="email sharing button" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/email.svg">
+  <span class="st-label">Email</span>
+</div><div class="st-btn" data-network="sharethis" style="display: inline-block;">
+  <img alt="sharethis sharing button" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/sharethis.svg">
+  <span class="st-label">Share</span>
+</div><div class="st-btn" data-network="linkedin" style="display: inline-block;">
+  <img alt="linkedin sharing button" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/linkedin.svg">
+  <span class="st-label">Share</span>
+</div><div class="st-btn st-last" data-network="reddit" style="display: inline-block;">
+  <img alt="reddit sharing button" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/reddit.svg">
+  <span class="st-label">Share</span>
+</div><div class="st-toggle">
+  <div class="st-left">
+    <img alt="arrow_left sharing button" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/arrow_left.svg">
+  </div>
+  <div class="st-right">
+    <img alt="arrow_right sharing button" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/arrow_right.svg">
+  </div>
+</div></div><form novalidate="novalidate" class="mktoForm mktoHasWidth mktoLayoutAbove" style="font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: rgb(51, 51, 51); visibility: hidden; position: absolute; top: -500px; left: -1000px; width: 1519px;"></form><iframe name="mktoFormsXDIframe0.228383319499464" id="MktoForms2XDIframe" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/XDFrame.html" style="display: none;"></iframe><iframe style="display: none;" src="./Deep Learning in a Nutshell_ Core Concepts _ NVIDIA Developer Blog_files/saved_resource(2).html"></iframe></body></html>

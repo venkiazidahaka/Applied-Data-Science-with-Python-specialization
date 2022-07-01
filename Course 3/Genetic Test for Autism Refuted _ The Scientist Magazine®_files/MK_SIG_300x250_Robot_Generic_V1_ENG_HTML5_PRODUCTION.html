@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!-- saved from url=(0192)https://s0.2mdn.net/ads/richmedia/studio/pv2/61418590/20200319100410302/MK_SIG_300x250_Robot_Generic_V1_ENG_HTML5_PRODUCTION.html?e=69&leftOffset=0&topOffset=0&c=OPihUtAWkp&t=1&renderingType=2 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>SIG_300x250_Robot_Generic_V1_ENG_HTML5 - merck</title>
+
+  <link rel="stylesheet" type="text/css" href="./SIG_300x250_Robot_Generic_V1_ENG_HTML5.css">
+
+  <script src="./Enabler_01_242.js.download"></script>
+  <script src="./tweenmax_2.0.1_min.js.download" type="text/javascript"></script>
+  <script src="./timelinemax_2.0.1_min.js.download" type="text/javascript"></script>
+
+
+  <style>
+    body {
+      margin: 0;
+    }
+  </style>
+
+<script type="text/javascript" charset="UTF-8" src="./prod_studio_01_242_videomodule.js.download"></script></head>
+<body>
+
+<!-- =============== AD: 300x250 ====================== -->
+
+<div id="mfuse_ad__01" class="mfuse_ad__300x250">
+
+  <div id="mfa__layer_1" style="position: absolute; z-index: 0; left: 0; top: 0; width: 100%; height: 100%; overflow: hidden;">
+    <video id="mfa__video_1" preload="metadata" playsinline="" style="position: absolute; top: 0; left: 0;" width="300" height="250" muted="muted" class="mfuse_video">
+      <source src="https://0ff73821705c2cb76659-736222575c91fd0f4addd5027eca9218.ssl.cf5.rackcdn.com/various/ads/sigmaaldrich/Robot/SIG_300x250_Robot_Generic_V1_ENG_HTML5__video.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div id="mfa__layer_2" style="position: absolute; z-index: 10; left: 0; top: 0; width: 100%; height: 100%; overflow: hidden;">
+    <img id="mfa__brand_logo" src="./merck_on_300x250.svg" width="300" height="250" style="position: absolute; top: 0; right: 0;">
+    <img id="mfa__portfolio_logo" src="./sigmaaldrich_on_300x250.svg" width="300" height="250" style="position: absolute; bottom: 0; right: 0;">
+
+    <img id="mfa__text_01" src="./SIG_300x250_Robot_Generic_V1_ENG_HTML5__text_01.svg" class="mfa__text" width="300" height="250" style="opacity: 0; position: absolute; bottom: 40px; left: 0px;">
+    <img id="mfa__text_02" src="./SIG_300x250_Robot_Generic_V1_ENG_HTML5__text_02.svg" class="mfa__text" width="300" height="250" style="opacity: 0.094249; position: absolute; bottom: 37px; left: 0px;">
+    <img id="mfa__text_03" src="./SIG_300x250_Robot_Generic_V1_ENG_HTML5__text_03.svg" class="mfa__text" width="300" height="250" style="opacity: 0.905751; position: absolute; bottom: 7px; left: 0px;">
+
+    <img id="mfa__button_cta" src="./SIG_300x250_Robot_Generic_V1_ENG_HTML5__CTA.svg" class="mfa__cta" width="300" height="250" style="opacity: 0; position: absolute; bottom: 40px; left: 0px;">
+
+  </div>
+</div>
+
+
+<script type="text/javascript" id="mfuse_ad__01__animation">
+
+    var ad = document.getElementById("mfuse_ad__01");
+    var vid = document.getElementById("mfa__video_1");
+    var tl;
+
+    var is_paused = false;
+
+    ad.addEventListener('click', function (ev) {
+        end_timeline();
+        end_video();
+    });
+
+    function play_video() {
+
+        if (!is_paused) {
+            let playPromise = vid.play();
+
+            if (playPromise !== undefined) {
+                playPromise.then(function () {
+                    // Automatic playback started!
+                    // Show playing UI.
+                })
+                    .catch(function (error) {
+                        // Auto-play was prevented
+                        // Show paused UI.
+                    });
+            }
+        }
+    }
+
+    var end_video = function (ev) {
+        // console.log("HELLO");
+        vid.currentTime = vid.duration;
+        vid.pause();
+        is_paused = true;
+    };
+
+    var end_timeline = function () {
+       // tl.seek(tl.duration(), false);
+       tl.totalTime(tl.totalDuration(), false);
+        tl.pause();
+    };
+
+    function init_animation() {
+
+        window.console.log("mfuse.ad.init");
+
+        var replay_video = function () {
+            vid.pause();
+            vid.currentTime = 0;
+
+            if (!is_paused) {
+                var promise = vid.play();
+
+                if (promise !== undefined) {
+                    promise.then(function () {
+                        // Autoplay started!
+                    }).catch(function (error) {
+                        // Autoplay was prevented.
+                        // Show a "Play" button so that user can start playback.
+                    });
+                }
+            }
+        };
+
+        var mfuse_ad_animation = function () {
+            let
+                // $video = document.getElementById("mfa__video_1"),
+                // $content = document.getElementById("mfa__layer_2"),
+                $text1 = document.getElementById("mfa__text_01"),
+                $text2 = document.getElementById("mfa__text_02"),
+                $text3 = document.getElementById("mfa__text_03");
+
+                let $button_cta = document.getElementById("mfa__button_cta");
+
+                // let $brand_logo = document.getElementById("mfa__brand_logo"),
+                // $portfolio_logo = document.getElementById("mfa__portfolio_logo");
+
+            let $t1_y = 10,
+                $t1_y_start = $t1_y - 30,
+                $t1_y_exit = $t1_y + 30;
+
+            let $t2_y = 10,
+                $t2_y_start = $t2_y - 30,
+                $t2_y_exit = $t2_y + 30;
+
+            let $t3_y = 10,
+                $t3_y_start = $t3_y - 30,
+                $t3_y_exit = $t3_y + 30;
+
+            tl = new TimelineMax();
+
+            tl.pause();
+
+            // KEY_A
+            tl.add('KEY_A', 0);
+            // tl.to($portfolio_logo, 1, {bottom: 0}, 'KEY_A');
+            tl.to($text1, 1, {opacity: 1, bottom: $t1_y}, 'KEY_A');
+
+            // KEY_C
+            tl.add('KEY_C', "+=1.25");
+            tl.to($text1, 1, {opacity: 0, bottom: $t1_y_exit}, 'KEY_C');
+            tl.to($text2, 1, {opacity: 1, bottom: $t2_y}, 'KEY_C');
+
+            // KEY_D
+            tl.add('KEY_D', "+=2");
+            tl.to($text2, 1, {opacity: 0, bottom: $t2_y_exit}, 'KEY_D');
+            tl.fromTo($text3, 1, {opacity: 0, bottom: $t3_y_start}, {opacity: 1, bottom: $t3_y}, 'KEY_D');
+            tl.fromTo($button_cta, 1, {opacity: 0, bottom: $t3_y_start}, {opacity: 1, bottom: $t3_y}, "+=0.5");
+
+            // KEY_E
+            // tl.add('KEY_E');
+            // tl.to($brand_logo, 1, {top: 0}, 'KEY_E');
+
+            // KEY_G
+            tl.add('KEY_G', "+=1");
+            tl.fromTo($text3, 1, {opacity: 1, bottom: $t3_y, immediateRender:false}, {opacity: 0, bottom: $t3_y_exit}, 'KEY_G');
+            tl.fromTo($button_cta, 1, {opacity: 1, bottom: $t3_y, immediateRender:false}, {opacity: 0, bottom: $t3_y_exit}, 'KEY_G');
+
+            // KEY_H
+            tl.add('KEY_H', "-=1");
+            tl.add(replay_video, 'KEY_H');
+            tl.fromTo($text1, 1, {opacity: 0, bottom: $t1_y_start, immediateRender:false}, {opacity: 1, bottom: $t1_y}, 'KEY_H');
+
+            // KEY_J
+            tl.add('KEY_J', "+=1.25");
+            tl.to($text1, 1, {opacity: 0, bottom: $t1_y_exit}, 'KEY_J');
+            tl.fromTo($text2, 1, {opacity: 0, bottom: $t2_y_start, immediateRender:false}, {opacity: 1, bottom: $t2_y}, 'KEY_J');
+
+            // KEY_K
+            tl.add('KEY_K', "+=2");
+            tl.to($text2, 1, {opacity: 0, bottom: $t2_y_exit}, 'KEY_K');
+            tl.fromTo($text3, 1, {opacity: 0, bottom: $t3_y_start, immediateRender:false}, {opacity: 1, bottom: $t3_y}, 'KEY_K');
+            tl.fromTo($button_cta, 1, {opacity: 0, bottom: $t3_y_start, immediateRender:false}, {opacity: 1, bottom: $t3_y}, "+=0.5");
+
+
+            tl.play();
+
+            if (typeof GSDevTools !== 'undefined') {
+                GSDevTools.create({paused: false, id: "mFuse_Ad"});
+            }
+        };
+
+
+        play_video();
+        mfuse_ad_animation();
+
+
+    }
+
+</script>
+
+<!-- ================ End: AD ========================= -->
+
+
+
+
+<script type="text/javascript" id="Enabler_init">
+
+    // If true, start function. If false, listen for INIT.
+     function mfuse_ad_ready () {
+
+        if (Enabler.isInitialized()) {
+            init();
+        } else {
+            Enabler.addEventListener(studio.events.StudioEvent.INIT, init);
+        }
+
+        Enabler.loadModule(studio.module.ModuleId.VIDEO, function () {
+            studio.video.Reporter.attach('video_background', vid);
+        });
+
+        // Runs when Enabler is ready.
+        function init() {
+            if (Enabler.isPageLoaded()) {
+                init_animation();
+            } else {
+                Enabler.addEventListener(studio.events.StudioEvent.PAGE_LOADED, init_animation);
+            }
+        }
+
+        function bgExitHandler(e) {
+            window.console.log("Background exit:", e);
+            vid.pause();
+            Enabler.exit('Background Exit');
+        }
+
+        document.getElementById('mfuse_ad__01').addEventListener('click', bgExitHandler, false);
+    }
+
+      document.addEventListener("DOMContentLoaded", mfuse_ad_ready);
+
+</script>
+
+
+</body></html>

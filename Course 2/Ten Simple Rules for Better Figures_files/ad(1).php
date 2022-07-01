@@ -1,0 +1,3 @@
+var pgAd = '';
+pgAd += "<"+"script src=\"https://www.googletagservices.com/tag/js/gpt.js\">googletag.pubads().definePassback(\"/149443272/21741235687\", [728, 90]).setTargeting(\"pgpro\", \"57\").setTargeting(\"pgpid\", \"10.1371%2Fjournal.pcbi.1003833\").setTargeting(\"pgiid\", \"158924989379241627494959229101371journalpcbi1003833\").setTargeting(\"pgzid\", \"229\").setTargeting(\"pgpub\", \"57\").setTargeting(\"pgscrh\", 864).setTargeting(\"pgscrw\", 1536).setTargeting(\"pgtrgtype\", \"content\").setTargeting(\"pgtrgtime\", \"1589249893792\").setTargeting(\"pgjour\", \"PLOS Computational Biology\").setTargeting(\"pgpubadunit\", \"/75507958/PCOMPBIO_728x90_ATF\").setTargeting(\"pgpubparam\", \"null\").display();<"+"/script>\n";
+document.write(pgAd);

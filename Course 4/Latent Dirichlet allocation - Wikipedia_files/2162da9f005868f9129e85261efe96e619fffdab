@@ -1,0 +1,9 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.655ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 712.5 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1-Title">
+<title id="MathJax-SVG-1-Title">{\displaystyle {\boldsymbol {\phi }}}</title>
+<defs aria-hidden="true">
+<path stroke-width="1" id="E1-MJMATHBI-3D5" d="M274 -7Q232 -4 195 7T125 38T71 94T51 176V190Q51 213 60 242T95 307T156 373T255 425T393 451L397 452L427 568Q434 597 443 636Q452 677 456 685T472 694H486H495Q517 694 517 680L514 665Q510 650 503 621T489 564L460 451H469Q527 447 574 430T657 370T693 266Q693 163 599 82T350 -7H346L322 -100Q301 -190 295 -197Q291 -202 283 -202H269H258Q238 -202 238 -188Q238 -186 260 -96L283 -7H274ZM449 400Q448 400 404 225T359 47T366 45Q464 55 516 119Q542 149 558 199T575 295Q575 387 462 398L449 400ZM384 398Q384 399 381 399Q350 399 298 378T214 308Q168 236 168 149Q168 68 259 49Q282 44 294 44H295L384 398Z"></path>
+</defs>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#E1-MJMATHBI-3D5" x="0" y="0"></use>
+</g>
+</svg>

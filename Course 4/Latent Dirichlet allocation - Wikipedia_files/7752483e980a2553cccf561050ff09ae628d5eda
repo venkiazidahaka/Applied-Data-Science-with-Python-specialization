@@ -1,0 +1,9 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.736ex" height="2.176ex" style="vertical-align: -0.838ex;" viewBox="0 -576.1 747.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1-Title">
+<title id="MathJax-SVG-1-Title">{\displaystyle {\boldsymbol {\varphi }}}</title>
+<defs aria-hidden="true">
+<path stroke-width="1" id="E1-MJMATHBI-3C6" d="M238 4Q230 5 218 8T174 26T118 58T73 112T53 190Q53 219 60 246Q77 313 103 362T143 426T163 443Q165 444 186 444Q217 444 217 432Q217 425 188 392Q157 351 137 291T116 206Q116 127 263 109L276 107L288 139Q347 304 414 378T566 452Q621 449 662 412T703 286Q698 167 598 82T357 -8H332V-11Q332 -12 327 -46T317 -116T310 -157Q306 -180 286 -198T234 -216Q211 -216 197 -203T183 -168Q183 -160 184 -155Q184 -152 198 -112T225 -34T238 4ZM637 260Q637 303 607 322T541 341Q502 341 466 319T405 264Q368 218 356 159Q348 111 348 104Q348 103 361 103Q502 103 569 152T637 260Z"></path>
+</defs>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#E1-MJMATHBI-3C6" x="0" y="0"></use>
+</g>
+</svg>
